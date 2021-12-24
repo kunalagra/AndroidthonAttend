@@ -2,8 +2,8 @@
 
 tcet aids
 Team Members:
-    ganesh utla
-    aman tiwari
-    kunal agrawal
-    deexith madas
-    vaibhav ashta
+    Ganesh Utla
+    Aman Tiwari
+    Kunal Agrawal
+    Deexith Madas
+    Vaibhav Ashta

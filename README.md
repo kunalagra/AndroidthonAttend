@@ -1,6 +1,6 @@
 # AndroidthonAttend
 
-tcet aids
+Tcet Ai&Ds
 Team Members:
     Ganesh Utla
     Aman Tiwari

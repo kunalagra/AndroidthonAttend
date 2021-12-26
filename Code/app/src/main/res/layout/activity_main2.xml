@@ -7,47 +7,64 @@
     tools:context=".MainActivity2">
 
     <EditText
-        android:id="@+id/edt_username"
-        android:layout_width="match_parent"
+        android:id="@+id/username"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="158dp"
+        android:layout_marginTop="160dp"
         android:layout_marginRight="28dp"
-        android:hint="Username"
-        android:inputType="text"
+        android:background="@drawable/background"
+        android:hint="@string/username"
         android:minHeight="48dp"
+        android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edi_gmail"
-        android:layout_width="match_parent"
+        android:id="@+id/email"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="28dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:background="@drawable/background"
+        android:hint="@string/email"
         android:minHeight="48dp"
+        android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_username" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <EditText
-        android:id="@+id/edt_password"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="28dp"
-        android:hint="password"
-        android:inputType="textPassword"
+        android:background="@drawable/background"
+        android:hint="@string/password"
         android:minHeight="48dp"
+        android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edi_gmail" />
+        app:layout_constraintTop_toBottomOf="@+id/email"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:text="@string/signup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

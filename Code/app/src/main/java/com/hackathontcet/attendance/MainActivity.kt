@@ -1,4 +1,4 @@
-package com.hacktcet.classattendance
+package com.hackathontcet.attendance
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

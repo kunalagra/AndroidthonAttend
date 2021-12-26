@@ -1,4 +1,4 @@
-package com.hacktcet.classattendance
+package com.hackathontcet.attendance
 
 import org.junit.Test
 

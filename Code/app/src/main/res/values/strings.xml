@@ -13,5 +13,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="username">Username</string>
     <string name="signup">Sign Up</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="login">LOGIN</string>
 
 </resources>

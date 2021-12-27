@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "309714083814",
+    "project_id": "attendance-c5215",
+    "storage_bucket": "attendance-c5215.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309714083814:android:9b2949a53a9c6e59190027",
+        "android_client_info": {
+          "package_name": "com.hackathontcet.attendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309714083814-rm46oklrsq44vtl2a48h46f4pi1al358.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmFmUu33_BLoR8w9A1hvDgJE-8QuPJa9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309714083814-rm46oklrsq44vtl2a48h46f4pi1al358.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

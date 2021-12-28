@@ -1,6 +1,7 @@
 package com.hackathontcet.attendance
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -51,6 +52,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
             R.id.logout -> Toast.makeText(this, "You were logged out", Toast.LENGTH_SHORT).show()
         }
         return true // onOptionsItemSelected(item)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -1,46 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/loginb"
-        android:layout_width="147dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="128dp"
-        android:layout_below="@id/imageView"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:text="@string/login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/signupb"
-        android:layout_width="143dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="132dp"
-        android:layout_below="@id/loginb"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:text="@string/sign_up"
-        app:layout_constraintStart_toStartOf="parent"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="403dp"
-        android:layout_height="415dp"
-        android:layout_marginStart="4dp"
-        android:contentDescription="@string/image_of_a_two_students_noting_attendance"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/attendp" />
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

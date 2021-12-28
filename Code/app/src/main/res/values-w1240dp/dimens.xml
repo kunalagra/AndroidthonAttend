@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< Updated upstream
     <dimen name="activity_horizontal_margin">200dp</dimen>
+=======
+    <dimen name="fab_margin">200dp</dimen>
+>>>>>>> Stashed changes
 </resources>

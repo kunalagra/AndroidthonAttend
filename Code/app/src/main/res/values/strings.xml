@@ -15,7 +15,8 @@
     <string name="signup">Sign Up</string>
     <string name="sign_up">SIGN UP</string>
     <string name="login">LOGIN</string>
-    <string name="image_of_a_two_students_noting_attendance">Image of a two students noting attendance</string>    <string name="title_activity_home_screen">Home_Screen</string>
+    <string name="image_of_a_two_students_noting_attendance">Image of a two students noting attendance</string>
+    <string name="title_activity_home_screen">Home_Screen</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

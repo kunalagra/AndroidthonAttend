@@ -20,12 +20,7 @@ class Login : AppCompatActivity() {
         username = findViewById(R.id.username)
         password = findViewById(R.id.password)
         login = findViewById(R.id.login)
-        signup = findViewById(R.id.signup)
 
-        signup.setOnClickListener {
-            val intent = Intent(this, MainActivity2::class.java)
-            startActivity(intent)
-        }
 
 
     }

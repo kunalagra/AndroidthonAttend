@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d829bcbf-3e84-4cea-99c3-9366e26018f4" name="Default Changelist" comment="Fixed typos">
-      <change afterPath="$PROJECT_DIR$/Code/app/google-services.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Code/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_main2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Code/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Code/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

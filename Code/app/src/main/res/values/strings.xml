@@ -15,6 +15,17 @@
     <string name="signup">Sign Up</string>
     <string name="sign_up">SIGN UP</string>
     <string name="login">LOGIN</string>
-    <string name="image_of_a_two_students_noting_attendance">Image of a two students noting attendance</string>
+    <string name="image_of_a_two_students_noting_attendance">Image of a two students noting attendance</string>    <string name="title_activity_home_screen">Home_Screen</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="subject_name">Subject Name</string>
+    <string name="log_out">Log Out</string>
+    <string name="search">Search</string>
+    <string name="homescreen">HomeScreen</string>
 </resources>

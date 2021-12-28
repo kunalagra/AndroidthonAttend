@@ -11,8 +11,18 @@
         android:layout_width="147dp"
         android:layout_height="60dp"
         android:layout_marginStart="128dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="108dp"
         android:text="@string/login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/homesact"
+        android:layout_width="147dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/homescreen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -20,8 +30,8 @@
         android:id="@+id/signupb"
         android:layout_width="143dp"
         android:layout_height="56dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="596dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="624dp"
         android:text="@string/sign_up"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

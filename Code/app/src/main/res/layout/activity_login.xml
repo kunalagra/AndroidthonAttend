@@ -8,30 +8,34 @@
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="match_parent"
+        android:layout_width="316dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
         android:layout_marginRight="10dp"
+        android:autofillHints="emailAddress"
         android:background="@drawable/background"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:hint="@string/username"
-        android:minHeight="48dp" />
+        android:paddingEnd="10dp" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="match_parent"
+        android:layout_width="316dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:autofillHints="password"
         android:background="@drawable/background"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:hint="@string/password"
-        android:minHeight="48dp" />
+        />
 
     <Button
         android:id="@+id/login"

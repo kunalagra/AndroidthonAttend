@@ -7,14 +7,11 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
-abstract class SwipeGesture(context : Context): ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
+abstract class SwipeGesture(context : Context): ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or
+        ItemTouchHelper.START or ItemTouchHelper.END,ItemTouchHelper.LEFT) {
 
     val archiveColor = ContextCompat.getColor(context,R.color.archive_color)
     val archiveIcon = R.drawable.ic_archive
-
-    override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-        return false
-    }
 
     override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
 

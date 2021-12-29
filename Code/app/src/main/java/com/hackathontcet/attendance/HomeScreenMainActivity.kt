@@ -66,6 +66,17 @@ class HomeScreenMainActivity : AppCompatActivity() {
         val adapter = RecyclerAdapter(newArrayList)
 
         val swipegesture = object : SwipeGesture(this){
+
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                val from_pos = viewHolder.adapterPosition
+                val to_pos = target.adapterPosition
+
+                Collections.swap(newArrayList,from_pos,to_pos)
+                adapter.notifyItemMoved(from_pos,to_pos)
+
+                return false
+            }
+
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int){
                 when(direction) {
                     ItemTouchHelper.LEFT -> {

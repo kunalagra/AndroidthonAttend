@@ -41,6 +41,7 @@ class MainActivity2 : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val intent = Intent(this@MainActivity2, HomeScreenMainActivity::class.java)
                     startActivity(intent)
+                    Toast.makeText(this@MainActivity2, "SignUp Successful", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this@MainActivity2, "Error Occurred Try Again", Toast.LENGTH_SHORT).show()
                 }

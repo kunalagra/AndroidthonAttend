@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -15,6 +16,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
 
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<Subjects>
+    private lateinit var mAuth: FirebaseAuth
 
     lateinit var imageId : Array<Int>
     lateinit var name : Array<String>
@@ -22,14 +24,17 @@ class HomeScreenMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_home_screen)
+        mAuth = FirebaseAuth.getInstance()
 
         val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
         bottom_nav.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.logout -> {
-                    val intent = Intent(this,MainActivity::class.java)
+                    val intent = Intent(this@HomeScreenMainActivity,MainActivity::class.java)
                     startActivity(intent)
+                    mAuth.signOut()
+                    finish()
                     Toast.makeText(this,"You were logged out",Toast.LENGTH_SHORT).show()
                 }
             }

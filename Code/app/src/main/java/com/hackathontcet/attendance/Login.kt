@@ -37,11 +37,11 @@ class Login : AppCompatActivity() {
             val password = password.text.toString()
             if(username.isEmpty() or password.isEmpty()) {
                 if (username.isEmpty()) {
-                    Toast.makeText(this@Login, "Please enter username address.", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@Login, "Please enter email address.", Toast.LENGTH_SHORT)
                         .show()
                 }
                 if (password.isEmpty()) {
-                    Toast.makeText(this@Login, "Please enter password address.", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@Login, "Please enter password.", Toast.LENGTH_SHORT)
                         .show()
                 }
             }

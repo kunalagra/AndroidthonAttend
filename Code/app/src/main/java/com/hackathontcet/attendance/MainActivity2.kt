@@ -41,14 +41,14 @@ class MainActivity2 : AppCompatActivity() {
                 if (username.isEmpty()) {
                     Toast.makeText(
                         this@MainActivity2,
-                        "Please enter username address.",
+                        "Please enter name.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 if (password.isEmpty()) {
                     Toast.makeText(
                         this@MainActivity2,
-                        "Please enter password address.",
+                        "Please enter password.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

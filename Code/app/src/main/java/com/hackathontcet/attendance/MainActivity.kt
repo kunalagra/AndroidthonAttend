@@ -45,5 +45,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun reload(){
         startActivity(Intent(this@MainActivity, HomeScreenMainActivity::class.java))
+        finish()
     }
 }

@@ -1,13 +1,12 @@
 package com.hackathontcet.attendance
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.hackathontcet.attendance.ui.login.fragments.HomeFragment
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -23,17 +22,18 @@ class HomeScreenMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_home_screen)
 
-        val homeFragment = HomeFragment()
-
         val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
         bottom_nav.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.logout -> Toast.makeText(this,"You were logged out",Toast.LENGTH_SHORT).show()// makeCurrentFragment(homeFragment)
+                R.id.logout -> {
+                    val intent = Intent(this,MainActivity::class.java)
+                    startActivity(intent)
+                    Toast.makeText(this,"You were logged out",Toast.LENGTH_SHORT).show()
+                }
             }
             true
         }
-
 
 
         imageId = arrayOf(
@@ -55,13 +55,6 @@ class HomeScreenMainActivity : AppCompatActivity() {
         newArrayList = arrayListOf<Subjects>()
         getUserdata()
     }
-
-    private fun makeCurrentFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fl_wrapper, fragment)
-            commit()
-        }
-
 
     private fun getUserdata(){
         for(i in imageId.indices){

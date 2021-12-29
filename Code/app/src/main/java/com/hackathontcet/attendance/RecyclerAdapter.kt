@@ -21,7 +21,7 @@ class RecyclerAdapter(private val subjectList : ArrayList<Subjects>) : RecyclerV
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.subjects,parent,false)
-        return ViewHolder(itemView)
+        return ViewHolder(itemView,mListener)
     }
 
     override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
@@ -35,10 +35,16 @@ class RecyclerAdapter(private val subjectList : ArrayList<Subjects>) : RecyclerV
         return subjectList.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
         val subjectImage : ShapeableImageView = itemView.findViewById(R.id.subject_icon)
         val subjectName : TextView = itemView.findViewById(R.id.subject_name)
 
+        // Tells the position of the particular subject view
+        init{
+            itemView.setOnClickListener{
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 }

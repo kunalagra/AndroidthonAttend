@@ -19,6 +19,16 @@ class RecyclerAdapter(private val subjectList : ArrayList<Subjects>) : RecyclerV
         mListener = listener
     }
 
+    fun deleteItem(i: Int){
+        subjectList.removeAt(i)
+        notifyDataSetChanged()
+    }
+
+    fun addItem(i: Int, subjects: Subjects){
+        subjectList.add(i,subjects)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.subjects,parent,false)
         return ViewHolder(itemView,mListener)

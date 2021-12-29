@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -63,6 +64,22 @@ class HomeScreenMainActivity : AppCompatActivity() {
         }
 
         val adapter = RecyclerAdapter(newArrayList)
+
+        val swipegesture = object : SwipeGesture(this){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int){
+                when(direction) {
+                    ItemTouchHelper.LEFT -> {
+                        val archiveItem = newArrayList[viewHolder.adapterPosition]
+                        adapter.deleteItem(viewHolder.adapterPosition)
+                        adapter.addItem(newArrayList.size,archiveItem)
+
+                    }
+                }
+            }
+        }
+        val touchHelper = ItemTouchHelper(swipegesture)
+        touchHelper.attachToRecyclerView(newRecyclerView)
+        
         newRecyclerView.adapter = adapter
 
         adapter.setOnClickListener(object : RecyclerAdapter.onItemClickListener{

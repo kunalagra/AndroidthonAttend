@@ -1,15 +1,13 @@
 package com.hackathontcet.attendance
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.SearchView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.hackathontcet.attendance.ui.login.fragments.HomeFragment
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -17,7 +15,6 @@ class HomeScreenMainActivity : AppCompatActivity() {
 
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<Subjects>
-    private lateinit var tempArrayList: ArrayList<Subjects>
 
     lateinit var imageId : Array<Int>
     lateinit var name : Array<String>
@@ -25,6 +22,19 @@ class HomeScreenMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_home_screen)
+
+        val homeFragment = HomeFragment()
+
+        val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
+
+        bottom_nav.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.logout -> Toast.makeText(this,"You were logged out",Toast.LENGTH_SHORT).show()// makeCurrentFragment(homeFragment)
+            }
+            true
+        }
+
+
 
         imageId = arrayOf(
             R.drawable.phy_icon,
@@ -43,49 +53,15 @@ class HomeScreenMainActivity : AppCompatActivity() {
         newRecyclerView.setHasFixedSize(true)
 
         newArrayList = arrayListOf<Subjects>()
-        tempArrayList = arrayListOf<Subjects>()
         getUserdata()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.logout -> Toast.makeText(this, "You were logged out", Toast.LENGTH_SHORT).show()
+    private fun makeCurrentFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fl_wrapper, fragment)
+            commit()
         }
-        return true // onOptionsItemSelected(item)
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.nav_menu,menu)
-        val item = menu?.findItem(R.id.search)
-        val searchView = item?.actionView as SearchView
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(p0: String?): Boolean {
-                TODO("Not yet implemented")
-            }
-
-            @SuppressLint("NotifyDataSetChanged")
-            override fun onQueryTextChange(newText: String?): Boolean {
-                tempArrayList.clear()
-                val searchText = newText!!.lowercase(Locale.getDefault())
-                if(searchText.isNotEmpty()){
-                    newArrayList.forEach{
-                        if(it.subjectName.lowercase(Locale.getDefault()).contains(searchText)){
-                            tempArrayList.add(it)
-                        }
-                    }
-                    newRecyclerView.adapter?.notifyDataSetChanged()
-                }
-                else{
-                    tempArrayList.clear()
-                    tempArrayList.addAll(newArrayList)
-                    newRecyclerView.adapter?.notifyDataSetChanged()
-                }
-                return false
-            }
-        })
-        return super.onCreateOptionsMenu(menu)
-    }
 
     private fun getUserdata(){
         for(i in imageId.indices){
@@ -93,9 +69,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
             newArrayList.add(subject)
         }
 
-        tempArrayList.addAll(newArrayList)
-
-        var adapter = RecyclerAdapter(tempArrayList)
+        val adapter = RecyclerAdapter(newArrayList)
         newRecyclerView.adapter = adapter
 
         adapter.setOnClickListener(object : RecyclerAdapter.onItemClickListener{
@@ -103,8 +77,5 @@ class HomeScreenMainActivity : AppCompatActivity() {
                 Toast.makeText(this@HomeScreenMainActivity, "You Clicked on subject no. $position", Toast.LENGTH_SHORT).show()
             }
         })
-
     }
-
-
 }

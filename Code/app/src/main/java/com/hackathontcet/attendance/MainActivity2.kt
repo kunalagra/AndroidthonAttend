@@ -30,8 +30,33 @@ class MainActivity2 : AppCompatActivity() {
             val username = username.text.toString()
             val email = email.text.toString()
             val password = password.text.toString()
+            if(email.isEmpty() or username.isEmpty() or password.isEmpty()) {
+                if (email.isEmpty()) {
+                    Toast.makeText(
+                        this@MainActivity2,
+                        "Please enter email address.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                if (username.isEmpty()) {
+                    Toast.makeText(
+                        this@MainActivity2,
+                        "Please enter username address.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                if (password.isEmpty()) {
+                    Toast.makeText(
+                        this@MainActivity2,
+                        "Please enter password address.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            else{
+                signUp(username,email,password);
+            }
 
-            signUp(username,email,password);
         }
     }
     private fun signUp(username: String,email: String, password: String){

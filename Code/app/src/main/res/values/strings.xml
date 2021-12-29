@@ -32,4 +32,8 @@
     <string name="homescreen">HomeScreen</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_your_email_we_ll_send_you_email_to_reset_your_password">Enter your Email We\'ll Send you email to reset your password</string>
+    <string name="submit">SUBMIT</string>
+    <string name="forgot">FORGOT</string>
+
 </resources>

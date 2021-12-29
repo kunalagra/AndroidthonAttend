@@ -13,6 +13,7 @@ class Login : AppCompatActivity() {
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
+    private lateinit var forgot: Button
     private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,12 +25,29 @@ class Login : AppCompatActivity() {
         username = findViewById(R.id.username)
         password = findViewById(R.id.password)
         login = findViewById(R.id.login)
+        forgot = findViewById(R.id.forgot)
 
+        forgot.setOnClickListener {
+            val intent = Intent(this, ForgotPassword::class.java)
+            startActivity(intent)
+        }
 
         login.setOnClickListener {
             val username = username.text.toString()
             val password = password.text.toString()
-            login(username,password);
+            if(username.isEmpty() or password.isEmpty()) {
+                if (username.isEmpty()) {
+                    Toast.makeText(this@Login, "Please enter username address.", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                if (password.isEmpty()) {
+                    Toast.makeText(this@Login, "Please enter password address.", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+            else{
+                login(username,password);
+            }
         }
 
     }

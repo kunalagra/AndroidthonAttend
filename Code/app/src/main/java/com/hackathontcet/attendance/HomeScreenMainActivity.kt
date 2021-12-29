@@ -100,6 +100,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
 
         adapter.setOnClickListener(object : RecyclerAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
+                startActivity(Intent(this@HomeScreenMainActivity, CalendarView::class.java))
                 Toast.makeText(this@HomeScreenMainActivity, "You Clicked on subject no. $position", Toast.LENGTH_SHORT).show()
             }
         })

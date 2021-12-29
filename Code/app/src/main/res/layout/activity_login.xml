@@ -19,6 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="350dp"
         android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/background"
         android:hint="@string/email"
@@ -53,6 +54,18 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         android:text="@string/login"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/forgot"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:text="@string/forgot"
         android:layout_marginTop="30dp"/>
 
 

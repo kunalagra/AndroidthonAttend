@@ -18,17 +18,12 @@ class MainActivity : AppCompatActivity() {
 
         val login: Button = findViewById(R.id.loginb)
         val signup: Button = findViewById(R.id.signupb)
-        val homes: Button = findViewById(R.id.homesact)
         signup.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
         login.setOnClickListener {
             val intent = Intent(this, Login::class.java)
-            startActivity(intent)
-        }
-        homes.setOnClickListener {
-            val intent = Intent(this, HomeScreenMainActivity::class.java)
             startActivity(intent)
         }
 
@@ -40,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = mAuth.currentUser
         if(currentUser != null){
-            reload();
+            reload()
         }
     }
     private fun reload(){

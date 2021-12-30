@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +29,9 @@ class HomeScreenMainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        val navController = findNavController(R.id.home)
+        bottom_nav.setupWithNavController(navController)
+//        bottom_nav.selectedItemId(R.id.home)
 
         bottom_nav.setOnNavigationItemSelectedListener {
             when(it.itemId){

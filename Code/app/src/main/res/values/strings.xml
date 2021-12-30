@@ -36,5 +36,9 @@
     <string name="submit">SUBMIT</string>
     <string name="forgot">FORGOT</string>
     <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
+    <string name="help">Help</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="about">About</string>
 
 </resources>

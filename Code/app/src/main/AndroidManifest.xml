@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Attendance">
         <activity
+            android:name=".AboutHomeScreen"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileHomeScreen"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity

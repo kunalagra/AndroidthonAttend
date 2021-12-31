@@ -4,24 +4,22 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
-
     var day = 0
     var month = 0
     var year = 0
-
     var savedday = 0
     var savedmonth = 0
     var savedyear = 0
     private lateinit var listView: ListView
-    private lateinit var  data: FirebaseDatabase
+    var name =""
 
 
     @SuppressLint("SetTextI18n")
@@ -29,17 +27,34 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_view)
 
-        pickDate()
+        var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
+        var ref= database.getReference("StuTab")
+        ref.child("1").get().addOnSuccessListener {
+            if(it.exists()){
+                name = it.key as String
+            }
+            else{
+                Toast.makeText(this,"Not found",Toast.LENGTH_SHORT).show()
+            }
+        }
 
+        pickDate()
         val click : TextView = findViewById(R.id.result_date_time)
+
+
         click.setOnClickListener{
             click.text = "Selected date = ${savedday}-${savedmonth}-${savedyear}"
+            Toast.makeText(this, "${name} was found", Toast.LENGTH_SHORT)
+                .show()
         }
+
+
+
     }
 
     private fun getDateCalendar() {
         val cal : Calendar = Calendar.getInstance()
-        day = cal.get(Calendar.DAY_OF_MONTH)
+        day = cal.get(Calendar.DAY_OF_MONTH,)
         month = cal.get(Calendar.MONTH)
         year = cal.get(Calendar.YEAR)
     }
@@ -55,10 +70,11 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     @SuppressLint("SetTextI18n")
     override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-        savedday = day
-        savedmonth = month
-        savedyear = year
+        savedday = p3
+        savedmonth = p2+1
+        savedyear = p1
         val sel_date : Button = findViewById(R.id.selected_date)
         sel_date.text = "${savedday}-${savedmonth}-${savedyear}"
     }
 }
+

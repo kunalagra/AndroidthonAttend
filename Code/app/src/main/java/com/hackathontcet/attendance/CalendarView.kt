@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.ListView
 import android.widget.TextView
+import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 
 class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
@@ -18,6 +20,9 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     var savedday = 0
     var savedmonth = 0
     var savedyear = 0
+    private lateinit var listView: ListView
+    private lateinit var  data: FirebaseDatabase
+
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

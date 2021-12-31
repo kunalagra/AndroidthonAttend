@@ -41,5 +41,8 @@
     <string name="home">Home</string>
     <string name="about">About</string>
     <string name="aboutText">Profile</string>
+    <string name="cv_date">Select Date:</string>
+    <string name="selected_date">select</string>
+    <string name="result_date_time">Click Here!!</string>
 
 </resources>

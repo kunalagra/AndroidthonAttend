@@ -8,7 +8,7 @@
     android:layout_margin="7dp"
     android:foreground="?selectableItemBackground"
     app:cardCornerRadius="20dp"
-    app:cardBackgroundColor="#81C9AA"
+    app:cardBackgroundColor="@color/subject_color"
     app:cardElevation="3dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_margin="8dp"
-            android:background="#084C2D"
+            android:background="#A23760"
             android:paddingTop="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/subject_icon" />

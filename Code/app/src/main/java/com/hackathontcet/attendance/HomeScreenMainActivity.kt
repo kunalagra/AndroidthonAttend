@@ -29,18 +29,21 @@ class HomeScreenMainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
-        val navController = findNavController(R.id.home)
-        bottom_nav.setupWithNavController(navController)
-//        bottom_nav.selectedItemId(R.id.home)
 
         bottom_nav.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.logout -> {
-                    val intent = Intent(this@HomeScreenMainActivity,MainActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this@HomeScreenMainActivity,MainActivity::class.java))
                     mAuth.signOut()
                     finish()
                     Toast.makeText(this,"You were logged out",Toast.LENGTH_SHORT).show()
+                }
+                R.id.profile -> {
+                    startActivity(Intent(this@HomeScreenMainActivity,ProfileHomeScreen::class.java))
+
+                }
+                R.id.about -> {
+                    startActivity(Intent(this@HomeScreenMainActivity,AboutHomeScreen::class.java))
                 }
             }
             true

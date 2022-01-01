@@ -12,14 +12,15 @@
         android:layout_height="300dp"
         app:srcCompat="@drawable/loginma"
         android:layout_centerHorizontal="true"/>
+
     <EditText
         android:id="@+id/username"
         android:layout_width="316dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="350dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/background"
         android:hint="@string/email"
@@ -67,6 +68,8 @@
         android:textSize="18sp"
         android:text="@string/forgot"
         android:layout_marginTop="30dp"/>
+
+
 
 
 </RelativeLayout>

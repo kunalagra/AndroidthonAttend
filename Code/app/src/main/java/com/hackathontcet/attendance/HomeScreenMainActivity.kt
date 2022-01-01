@@ -2,11 +2,7 @@ package com.hackathontcet.attendance
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,29 +24,20 @@ class HomeScreenMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_home_screen)
-        mAuth = FirebaseAuth.getInstance()
 
         val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
         bottom_nav.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.logout -> {
-                    startActivity(Intent(this@HomeScreenMainActivity,MainActivity::class.java))
-                    mAuth.signOut()
-                    finish()
-                    Toast.makeText(this,"You were logged out",Toast.LENGTH_SHORT).show()
-                }
                 R.id.profile -> {
-                    startActivity(Intent(this@HomeScreenMainActivity,ProfileHomeScreen::class.java))
-
+                    startActivity(Intent(this,ProfileHomeScreen::class.java))
                 }
                 R.id.about -> {
-                    startActivity(Intent(this@HomeScreenMainActivity,AboutHomeScreen::class.java))
+                    startActivity(Intent(this,AboutHomeScreen::class.java))
                 }
             }
             true
         }
-
 
         imageId = arrayOf(
             R.drawable.phy_icon,
@@ -70,6 +57,12 @@ class HomeScreenMainActivity : AppCompatActivity() {
 
         newArrayList = arrayListOf<Subjects>()
         getUserdata()
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.nav_host_fragment_container,fragment)
+        transaction.commit()
     }
 
     private fun getUserdata(){

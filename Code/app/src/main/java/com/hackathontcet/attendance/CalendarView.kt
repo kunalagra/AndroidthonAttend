@@ -13,7 +13,7 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
-   var nday=""
+    var nday=""
     var nmonth=""
     var day = 0
     var month = 0
@@ -32,10 +32,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         val intent = intent
         val subject = intent.getStringExtra("key1")
 
-        var ref= database.getReference("$subject")
-        ref.child("01012022").get().addOnSuccessListener {
-            absent = it.value as String
-        }
+
         /*
         ref.child("1").get().addOnSuccessListener {
             if(it.exists()){
@@ -50,7 +47,11 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
 
         click.setOnClickListener{
-            click.text = "Selected date = ${savedday}-${savedmonth}-${savedyear}"
+            click.text = "Selected date = ${nday}-${nmonth}-${savedyear}"
+            var ref= database.getReference("$subject")
+            ref.child("$nday$nmonth$savedyear").get().addOnSuccessListener {
+                absent = it.value as String
+            }
             Toast.makeText(this, "$absent was found", Toast.LENGTH_SHORT)
                 .show()
         }
@@ -80,12 +81,12 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         savedday = p3
         savedmonth = p2+1
         savedyear = p1
+        nmonth= savedmonth.toString()
+        nday= savedday.toString()
         if (savedmonth<10){
-            nmonth= savedmonth.toString()
-                nmonth = "0$nmonth"
-         }
+            nmonth = "0$nmonth"
+        }
         if (savedday<10){
-            nday= savedday.toString()
             nday = "0$nday"
         }
 

@@ -13,6 +13,8 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
+   var nday=""
+    var nmonth=""
     var day = 0
     var month = 0
     var year = 0
@@ -78,8 +80,17 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         savedday = p3
         savedmonth = p2+1
         savedyear = p1
+        if (savedmonth<10){
+            nmonth= savedmonth.toString()
+                nmonth = "0$nmonth"
+         }
+        if (savedday<10){
+            nday= savedday.toString()
+            nday = "0$nday"
+        }
+
         val sel_date : Button = findViewById(R.id.selected_date)
-        sel_date.text = "${savedday}-${savedmonth}-${savedyear}"
+        sel_date.text = "${nday}-${nmonth}-${savedyear}"
     }
 }
 

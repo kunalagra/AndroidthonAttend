@@ -21,15 +21,20 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     var savedyear = 0
     private lateinit var listView: ListView
     var name =""
-
+    var absent =""
+    private var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_view)
         val intent = intent
         val subject = intent.getStringExtra("key1")
-        var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
-        var ref= database.getReference("StuTab")
+
+        var ref= database.getReference("$subject")
+        ref.child("01012022").get().addOnSuccessListener {
+            absent = it.value as String
+        }
+        /*
         ref.child("1").get().addOnSuccessListener {
             if(it.exists()){
                 name = it.key as String
@@ -37,14 +42,14 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             else{
                 Toast.makeText(this,"Not found",Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
         pickDate()
         val click : TextView = findViewById(R.id.result_date_time)
 
 
         click.setOnClickListener{
             click.text = "Selected date = ${savedday}-${savedmonth}-${savedyear}"
-            Toast.makeText(this, "$subject was found", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "$absent was found", Toast.LENGTH_SHORT)
                 .show()
         }
 

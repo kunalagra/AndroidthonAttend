@@ -6,8 +6,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -23,6 +25,11 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     var savedmonth = 0
     var savedyear = 0
     private lateinit var listView: ListView
+    private lateinit var userlayout: RecyclerView
+    private lateinit var ArrayList: ArrayList<Name>
+    private lateinit var adapter: MyAdapter
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var data: DatabaseReference
     var name =""
     var absent =""
     private var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
@@ -32,6 +39,35 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         setContentView(R.layout.activity_calendar_view)
         val intent = intent
         val subject = intent.getStringExtra("key1")
+        mAuth = FirebaseAuth.getInstance()
+        data = FirebaseDatabase.getInstance().getReference()
+
+        ArrayList = ArrayList()
+        adapter = MyAdapter(ArrayList)
+
+        userlayout = findViewById(R.id.userlayout)
+
+        userlayout.layoutManager = LinearLayoutManager(this)
+        userlayout.adapter = adapter
+
+        data.child("StuTab").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                ArrayList.clear()
+                for (postSnapshot in snapshot.children){
+                    val currentUser = postSnapshot.getValue(Name::class.java)
+                    ArrayList.add(currentUser!!)
+                }
+                adapter.notifyDataSetChanged()
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+
+
 
 
         /*

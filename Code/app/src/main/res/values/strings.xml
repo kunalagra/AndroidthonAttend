@@ -40,9 +40,13 @@
     <string name="profile">Profile</string>
     <string name="home">Home</string>
     <string name="about">About</string>
-    <string name="aboutText">Profile</string>
+    <string name="aboutText">About us</string>
+    <string name="profileText">Profile</string>
     <string name="cv_date">Select Date:</string>
     <string name="selected_date">select</string>
     <string name="result_date_time">Click Here!!</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="profile_uid_text">Username:</string>
+    <string name="profile_email_text">Email:</string>
 
 </resources>

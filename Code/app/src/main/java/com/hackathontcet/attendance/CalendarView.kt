@@ -2,6 +2,7 @@ package com.hackathontcet.attendance
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -21,12 +22,12 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private lateinit var listView: ListView
     var name =""
 
-
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_view)
-
+        val intent = intent
+        val subject = intent.getStringExtra("key1")
         var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
         var ref= database.getReference("StuTab")
         ref.child("1").get().addOnSuccessListener {
@@ -37,14 +38,13 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                 Toast.makeText(this,"Not found",Toast.LENGTH_SHORT).show()
             }
         }
-
         pickDate()
         val click : TextView = findViewById(R.id.result_date_time)
 
 
         click.setOnClickListener{
             click.text = "Selected date = ${savedday}-${savedmonth}-${savedyear}"
-            Toast.makeText(this, "${name} was found", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "$subject was found", Toast.LENGTH_SHORT)
                 .show()
         }
 

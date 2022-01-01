@@ -1,8 +1,9 @@
 package com.hackathontcet.attendance
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -13,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 import kotlin.collections.ArrayList
+import android.content.Intent as Intent
 
 class HomeScreenMainActivity : AppCompatActivity() {
 
@@ -107,8 +109,12 @@ class HomeScreenMainActivity : AppCompatActivity() {
         newRecyclerView.adapter = adapter
 
         adapter.setOnClickListener(object : RecyclerAdapter.onItemClickListener{
-            override fun onItemClick(position: Int) {
-                startActivity(Intent(this@HomeScreenMainActivity, CalendarView::class.java))
+            override fun onItemClick(position: Int, subject: String) {
+                val intent = Intent(this@HomeScreenMainActivity, CalendarView::class.java)
+                intent.putExtra("key1",subject)
+                startActivity(intent)
+
+
             }
         })
     }

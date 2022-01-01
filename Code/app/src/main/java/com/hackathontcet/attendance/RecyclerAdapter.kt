@@ -12,7 +12,7 @@ class RecyclerAdapter(private val subjectList : ArrayList<Subjects>) : RecyclerV
     private lateinit var mListener: onItemClickListener
 
     interface onItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int, subjects: String)
     }
 
     fun setOnClickListener(listener: onItemClickListener){
@@ -53,7 +53,7 @@ class RecyclerAdapter(private val subjectList : ArrayList<Subjects>) : RecyclerV
         // Tells the position of the particular subject view
         init{
             itemView.setOnClickListener{
-                listener.onItemClick(adapterPosition)
+                listener.onItemClick(adapterPosition, subjectName.text as String)
             }
         }
     }

@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(private val NameList : ArrayList<Name>): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.MyViewHolder {
+class MyAdapter(private val NameList : ArrayList<Name>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
         TODO("Not yet implemented")
     }
 
@@ -18,6 +18,6 @@ class MyAdapter(private val NameList : ArrayList<Name>): RecyclerView.Adapter<My
         TODO("Not yet implemented")
     }
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val rid : TextView = itemView.findViewById(R.id.)
+
     }
 }

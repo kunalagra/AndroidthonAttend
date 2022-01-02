@@ -43,7 +43,7 @@
         android:id="@+id/userlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/data_list"
-        android:layout_below="@id/result_date_time" />
+        android:layout_below="@id/result_date_time"
+        tools:listitem="@layout/data_list" />
 
 </RelativeLayout>

@@ -18,6 +18,8 @@ class MyAdapter(private val NameList : ArrayList<Name>): RecyclerView.Adapter<My
         val currentUser = NameList[position]
 
         holder.textname.text = currentUser.name
+        holder.rid.text = currentUser.rid
+        holder.absent.text = currentUser.attend
 
     }
 
@@ -29,6 +31,7 @@ class MyAdapter(private val NameList : ArrayList<Name>): RecyclerView.Adapter<My
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val textname = itemView.findViewById<TextView>(R.id.name)
         val rid = itemView.findViewById<TextView>(R.id.rollno)
+        val absent = itemView.findViewById<TextView>(R.id.absent)
 
     }
 }

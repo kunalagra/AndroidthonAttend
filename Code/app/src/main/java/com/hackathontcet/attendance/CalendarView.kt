@@ -26,10 +26,10 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     var savedday = 0
     var savedmonth = 0
     var savedyear = 0
-   // private lateinit var listView: ListView
-    //private lateinit var userlayout: RecyclerView
-  //  private lateinit var ArrayList: ArrayList<Name>
-    //private lateinit var adapter: MyAdapter
+
+    private lateinit var userlayout: RecyclerView
+    private lateinit var ArrayList: ArrayList<Name>
+    private lateinit var adapter: MyAdapter
     //private lateinit var mAuth: FirebaseAuth
     //private lateinit var data: DatabaseReference
     var Sname = arrayOf("")
@@ -43,6 +43,12 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         setContentView(R.layout.activity_calendar_view)
         val intent = intent
         val subject = intent.getStringExtra("key1")
+
+        userlayout = findViewById(R.id.userlayout)
+        userlayout.layoutManager = LinearLayoutManager(this)
+        userlayout.setHasFixedSize(true)
+
+        ArrayList = arrayListOf<Name>()
         getStudent()
         /*
         ArrayList = ArrayList()
@@ -116,6 +122,13 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                 Rid = tempnum.split(",").toTypedArray()
             }
     }
+        for(i in Rid.indices){
+            val name = Name(Rid[i],Sname[i],absent[i])
+            ArrayList.add(name)
+        }
+
+        val adapter = MyAdapter(ArrayList)
+        userlayout.adapter = adapter
     }
 
     private fun getDateCalendar() {

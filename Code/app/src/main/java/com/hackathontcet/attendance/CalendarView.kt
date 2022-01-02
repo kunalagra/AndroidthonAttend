@@ -5,6 +5,8 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils.split
+import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,14 +26,16 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     var savedday = 0
     var savedmonth = 0
     var savedyear = 0
-    private lateinit var listView: ListView
-    private lateinit var userlayout: RecyclerView
-    private lateinit var ArrayList: ArrayList<Name>
-    private lateinit var adapter: MyAdapter
-    private lateinit var mAuth: FirebaseAuth
-    private lateinit var data: DatabaseReference
-    var name =""
-    var absent =""
+   // private lateinit var listView: ListView
+    //private lateinit var userlayout: RecyclerView
+  //  private lateinit var ArrayList: ArrayList<Name>
+    //private lateinit var adapter: MyAdapter
+    //private lateinit var mAuth: FirebaseAuth
+    //private lateinit var data: DatabaseReference
+    var Sname = arrayOf("")
+    var Rid = arrayOf("")
+    var absentf = ""
+    var absent = arrayOf("")
     private var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,13 +43,12 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         setContentView(R.layout.activity_calendar_view)
         val intent = intent
         val subject = intent.getStringExtra("key1")
-        mAuth = FirebaseAuth.getInstance()
-        data = FirebaseDatabase.getInstance().getReference()
-
+        getStudent()
+        /*
         ArrayList = ArrayList()
         adapter = MyAdapter(ArrayList)
 
-        userlayout = findViewById(R.id.userlayout)
+       // userlayout = findViewById(R.id.userlayout)
 
         userlayout.layoutManager = LinearLayoutManager(this)
         userlayout.adapter = adapter
@@ -67,7 +70,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
         })
 
-
+        */
 
 
         /*
@@ -81,20 +84,38 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         }*/
         pickDate()
         val click : TextView = findViewById(R.id.result_date_time)
-
-
+        var ab=""
         click.setOnClickListener{
-            click.text = "Selected date = ${nday}-${nmonth}-${savedyear}"
-            var ref= database.getReference("$subject")
+            click.text = "GetData"
+            var ref= database.getReference("$subject/")
             ref.child("$nday$nmonth$savedyear").get().addOnSuccessListener {
-                absent = it.value as String
+                ab = "${it.value}"
+                absent = ab.split(",").toTypedArray()
             }
-            Toast.makeText(this, "$absent was found", Toast.LENGTH_SHORT)
-                .show()
+
         }
 
 
 
+    }
+    private fun getStudent(){
+        var ref = database.getReference()
+        ref.child("StuTab/").get().addOnSuccessListener{
+            if(it.exists()){
+                var namez = "${it.value}"
+                namez = namez.drop(1)
+                namez = namez.replace("]","")
+                Sname = namez.split(", ").toTypedArray()
+                var tempnum = "1"
+                var aa=1
+                for (i in Sname){
+                    aa+=1
+                    val b = aa.toString()
+                    tempnum = tempnum.plus(",").plus(b)
+                }
+                Rid = tempnum.split(",").toTypedArray()
+            }
+    }
     }
 
     private fun getDateCalendar() {
@@ -105,8 +126,8 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     }
 
     private fun pickDate() {
-        val sel_date : Button = findViewById(R.id.selected_date)
-        sel_date.setOnClickListener{
+        val seldate : Button = findViewById(R.id.selected_date)
+        seldate.setOnClickListener{
             getDateCalendar()
 
             DatePickerDialog(this, this, year, month, day).show()
@@ -120,15 +141,11 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         savedyear = p1
         nmonth= savedmonth.toString()
         nday= savedday.toString()
-        if (savedmonth<10){
-            nmonth = "0$nmonth"
-        }
-        if (savedday<10){
-            nday = "0$nday"
-        }
+        nmonth = "$savedmonth".padStart(2,'0')
+        nday = "$savedday".padStart(2,'0')
 
-        val sel_date : Button = findViewById(R.id.selected_date)
-        sel_date.text = "${nday}-${nmonth}-${savedyear}"
+        val seldate : Button = findViewById(R.id.selected_date)
+        seldate.text = "${nday}-${nmonth}-${savedyear}"
     }
 }
 

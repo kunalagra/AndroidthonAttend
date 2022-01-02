@@ -50,7 +50,7 @@ class RecyclerAdapter(private val subjectList : ArrayList<Subjects>) : RecyclerV
         val subjectImage : ShapeableImageView = itemView.findViewById(R.id.subject_icon)
         val subjectName : TextView = itemView.findViewById(R.id.subject_name)
 
-        // Tells the position of the particular subject view
+        // Tells the position of the particular subject view and subject name
         init{
             itemView.setOnClickListener{
                 listener.onItemClick(adapterPosition, subjectName.text as String)

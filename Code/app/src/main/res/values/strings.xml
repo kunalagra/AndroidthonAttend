@@ -44,7 +44,7 @@
     <string name="profileText">Profile</string>
     <string name="cv_date">Select Date:</string>
     <string name="selected_date">select</string>
-    <string name="result_date_time">Click \n Here!!</string>
+    <string name="result_date_time">Get Data</string>
     <string name="profile_uid_text">UserID:</string>
     <string name="profile_email_text">Email:</string>
 

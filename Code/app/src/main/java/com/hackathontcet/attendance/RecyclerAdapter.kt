@@ -73,7 +73,7 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
         holder.titleTextView.text = currentItem.subjectName
         holder.imageView.setImageResource(currentItem.subjectImage)
         holder.itemView.setOnClickListener{
-            clickListener.onItemClick(subjectList.get(position))
+            clickListener.onItemClick(currentItem.subjectName)
         }
     }
 
@@ -91,6 +91,6 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
     }
 
     interface ClickListener {
-        fun onItemClick(subjects: Subjects)
+        fun onItemClick(subjects: String)
     }
 }

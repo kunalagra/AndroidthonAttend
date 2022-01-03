@@ -2,18 +2,13 @@ package com.hackathontcet.attendance
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils.split
-import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -29,11 +24,11 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var userlayout: RecyclerView
     private lateinit var ArrayList: ArrayList<Name>
-    private lateinit var adapter: MyAdapter
+  //  private lateinit var adapter: MyAdapter
     //private lateinit var mAuth: FirebaseAuth
     //private lateinit var data: DatabaseReference
-    lateinit var Rid : Array<Int>
-    lateinit var Sname : Array<String>
+    lateinit var studentRoll : Array<Int>
+    lateinit var studentName : Array<String>
     var absentS = arrayOf("")
     var absent = arrayOf(0)
     private var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
@@ -41,100 +36,90 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_view)
+        getStudent()
+
         userlayout = findViewById(R.id.userlayout)
         userlayout.layoutManager = LinearLayoutManager(this)
         userlayout.setHasFixedSize(true)
         ArrayList = arrayListOf<Name>()
-
-        val intent = intent
-        Sname = intent.getSerializableExtra("key2") as Array<String>
-        Rid = intent.getSerializableExtra("key3") as Array<Int>
-
-
-        /*
-        ArrayList = ArrayList()
-        adapter = MyAdapter(ArrayList)
-
-       // userlayout = findViewById(R.id.userlayout)
-
-        userlayout.layoutManager = LinearLayoutManager(this)
-        userlayout.adapter = adapter
-
-        data.child("StuTab").addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                ArrayList.clear()
-                for (postSnapshot in snapshot.children){
-                    val currentUser = postSnapshot.getValue(Name::class.java)
-                    ArrayList.add(currentUser!!)
-                }
-                adapter.notifyDataSetChanged()
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
-
-        */
-
-
-        /*
-        ref.child("1").get().addOnSuccessListener {
-            if(it.exists()){
-                name = it.key as String
-            }
-            else{
-                Toast.makeText(this,"Not found",Toast.LENGTH_SHORT).show()
-            }
-        }*/
-
         pickDate()
         val click : TextView = findViewById(R.id.result_date_time)
-        var ab=""
         click.setOnClickListener {
-            click.text = "Fetch Data"
-            var temp = ""
-            if(absent[0]==-1){
-                for (i in Rid) {
-                temp = temp.plus(",No Data")
-                }
-                temp = temp.drop(1)
-                absentS = temp.split(",").toTypedArray()
+            if (::studentName.isInitialized) {
+                click.text = "Fetch Data"
+                var temp = ""
+                when {
+                    absent[0] == -1 -> {
+                        for (i in studentRoll) {
+                            temp = temp.plus(",No Data")
+                        }
+                        temp = temp.drop(1)
+                        absentS = temp.split(",").toTypedArray()
 
-            }
-            else if(absent[0]==0){
-                for (i in Rid) {
-                    temp = temp.plus(",Present")
-                }
-                temp = temp.drop(1)
-                absentS = temp.split(",").toTypedArray()
-            }
-            else {
-            for (i in Rid) {
-                temp = temp.plus(",Present")
-            }
-            temp = temp.drop(1)
-            var temab = temp.split(",").toTypedArray()
-            for (i in absent.indices) {
-                var ab = absent[i]
-                if (ab == Rid[ab-1]) {
-                    temab[ab-1] = "Absent"
-                }
-            }
-            absentS = temab
+                    }
+                    absent[0] == 0 -> {
+                        for (i in studentRoll) {
+                            temp = temp.plus(",Present")
+                        }
+                        temp = temp.drop(1)
+                        absentS = temp.split(",").toTypedArray()
+                    }
+                    else -> {
+                        for (i in studentRoll) {
+                            temp = temp.plus(",Present")
+                        }
+                        temp = temp.drop(1)
+                        var temab = temp.split(",").toTypedArray()
+                        for (i in absent.indices) {
+                            var ab = absent[i]
+                            if (ab == studentRoll[ab - 1]) {
+                                temab[ab - 1] = "Absent"
+                            }
+                        }
+                        absentS = temab
 
+                    }
+                }
+                getUserdata()
+            }else{
+                Thread.sleep(200)
+            }
         }
-            getUserdata()
+
+    }
+    private fun getStudent(){
+        val thread = Thread {
+            val ref = database.reference
+            ref.child("StuTab/").get().addOnSuccessListener {
+                if (it.exists()) {
+                    var namez = "${it.value}"
+                    namez = namez.drop(1)
+                    namez = namez.replace("]", "")
+                    namez = namez.replace("null, ", "")
+                    studentName = namez.split(", ").toTypedArray()
+                    var tempnum = ""
+                    var aa = 1
+                    for (i in studentName) {
+                        val b = aa.toString()
+                        tempnum = tempnum.plus(",").plus(b)
+                        aa += 1
+                    }
+                    tempnum = tempnum.drop(1)
+                    val tRid = tempnum.split(",").toTypedArray()
+                    studentRoll = tRid.map { it.toInt() }.toTypedArray()
+
+                }
+            }
         }
+        thread.start()
+
 
 
     }
     private fun getUserdata(){
         ArrayList.clear()
-        for(i in Sname.indices){
-            val namel = Name(Rid[i],Sname[i],absentS[i])
+        for(i in studentName.indices){
+            val namel = Name(studentRoll[i],studentName[i],absentS[i])
             ArrayList.add(namel)
         }
         val adapter = MyAdapter(ArrayList)
@@ -170,18 +155,17 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         nday = "$savedday".padStart(2, '0')
         val intent = intent
         val subject = intent.getStringExtra("key1")
-        var ab = ""
+        var ab: String
         val seldate: Button = findViewById(R.id.selected_date)
         seldate.text = "${nday}-${nmonth}-${savedyear}"
-        var ref = database.getReference("$subject/")
+        val ref = database.getReference("$subject/")
         ref.child("$nday$nmonth$savedyear").get().addOnSuccessListener {
             ab = "${it.value}"
-            if (ab != "null") {
+            absent = if (ab != "null") {
                 val tabsent = ab.split(",").toTypedArray()
-                absent = tabsent.map { it.toInt() }.toTypedArray()
-            }
-            else{
-                absent = arrayOf(-1)
+                tabsent.map { it.toInt() }.toTypedArray()
+            } else{
+                arrayOf(-1)
             }
         }
     }

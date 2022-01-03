@@ -19,10 +19,6 @@ import kotlin.collections.ArrayList
 import android.content.Intent as Intent
 
 class HomeScreenMainActivity : AppCompatActivity() {
-    lateinit var Rid : Array<Int>
-    lateinit var Sname : Array<String>
-
-    private var database = FirebaseDatabase.getInstance("https://attendance-c5215-default-rtdb.asia-southeast1.firebasedatabase.app")
 
     private lateinit var newRecyclerView: RecyclerView
     private lateinit var newArrayList: ArrayList<Subjects>
@@ -37,10 +33,10 @@ class HomeScreenMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity_home_screen)
-//        getStudent()
-        val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
 
+        setContentView(R.layout.main_activity_home_screen)
+
+        val bottom_nav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         setCurrentFragment(homeFragment)
 
         bottom_nav.setOnNavigationItemSelectedListener {
@@ -60,31 +56,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
 //        getUserdata()
     }
 
-    private fun getStudent(){
-        var ref = database.reference
-        ref.child("StuTab/").get().addOnSuccessListener{
-            if(it.exists()){
-                var namez = "${it.value}"
-                namez = namez.drop(1)
-                namez = namez.replace("]","")
-                namez = namez.replace("null, ","")
-                Sname = namez.split(", ").toTypedArray()
 
-                var tempnum = ""
-                var aa=1
-                for (i in Sname){
-                    val b = aa.toString()
-                    tempnum = tempnum.plus(",").plus(b)
-                    aa+=1
-                }
-                tempnum = tempnum.drop(1)
-                val tRid = tempnum.split(",").toTypedArray()
-                Rid = tRid.map { it.toInt() }.toTypedArray()
-
-            }
-        }
-
-    }
 
     private fun setCurrentFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
@@ -135,11 +107,11 @@ class HomeScreenMainActivity : AppCompatActivity() {
 //
 //        adapter.setOnClickListener(object : RecyclerAdapter.onItemClickListener {
 //            override fun onItemClick(position: Int, subject: String) {
-//                if (::Sname.isInitialized) {
+//                if (::studentName.isInitialized) {
 //                    val intent = Intent(this@HomeScreenMainActivity, CalendarView::class.java)
 //                    intent.putExtra("key1", subject)
-//                    intent.putExtra("key2", Sname)
-//                    intent.putExtra("key3", Rid)
+//                    intent.putExtra("key2", studentName)
+//                    intent.putExtra("key3", studentRoll)
 //                    startActivity(intent)
 //
 //                } else {

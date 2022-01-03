@@ -1,16 +1,15 @@
 package com.hackathontcet.attendance.fragments
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hackathontcet.attendance.DetailFragment
-import com.hackathontcet.attendance.R
-import com.hackathontcet.attendance.RecyclerAdapter
-import com.hackathontcet.attendance.Subjects
+import com.hackathontcet.attendance.*
 
 //// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //private const val ARG_PARAM1 = "param1"
@@ -87,9 +86,11 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         adapter = RecyclerAdapter(subjects,this)
         recyclerView.adapter = adapter
+
     }
 
     private fun getUserData(){
+        subjects.clear()
         imageId = arrayOf(
             R.drawable.phy_icon,
             R.drawable.chem_icon,
@@ -116,12 +117,9 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
             }
     }
 
-    override fun onItemClick(subjects: Subjects) {
-        val fragment : Fragment = DetailFragment.newInstance(subjects.subjectName!!)
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.hide(activity?.supportFragmentManager!!.findFragmentByTag("main_fragment")!!)
-        transaction?.add(R.id.fl_wrapper,fragment)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
+    override fun onItemClick(subjects: String) {
+        val intent = Intent(activity, CalendarView::class.java)
+        intent.putExtra("key1", subjects)
+        startActivity(intent)
     }
 }

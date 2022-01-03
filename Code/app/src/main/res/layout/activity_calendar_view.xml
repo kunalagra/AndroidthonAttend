@@ -24,9 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
+        android:layout_toEndOf="@id/cv_date"
         android:text="@string/selected_date"
         android:textSize="18sp"
-        android:layout_toEndOf="@id/cv_date"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -41,10 +41,10 @@
     <View
         android:id="@+id/line4"
         android:layout_width="wrap_content"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_margin="8dp"
         android:layout_below="@id/result_date_time"
-        android:background="@color/black"/>
+        android:background="@color/primaryColor"/>
 
     <LinearLayout
         android:id="@+id/heading"
@@ -94,7 +94,7 @@
                 android:id="@+id/absent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="A/P"
+                android:text="Attendance"
                 android:textSize="18dp"
                 android:gravity="center"/>
         </LinearLayout>
@@ -106,10 +106,10 @@
     <View
         android:id="@+id/line5"
         android:layout_width="wrap_content"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:layout_margin="8dp"
         android:layout_below="@id/heading"
-        android:background="@color/black"/>
+        android:background="@color/primaryColor"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userlayout"

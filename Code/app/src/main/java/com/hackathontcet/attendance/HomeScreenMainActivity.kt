@@ -74,7 +74,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
                 namez = namez.replace("]","")
                 namez = namez.replace("null, ","")
                 Sname = namez.split(", ").toTypedArray()
-                Log.i("firebase","$namez")
+
                 var tempnum = ""
                 var aa=1
                 for (i in Sname){
@@ -83,7 +83,6 @@ class HomeScreenMainActivity : AppCompatActivity() {
                     aa+=1
                 }
                 tempnum = tempnum.drop(1)
-                Log.i("firebase", "$tempnum")
                 val tRid = tempnum.split(",").toTypedArray()
                 Rid = tRid.map { it.toInt() }.toTypedArray()
 

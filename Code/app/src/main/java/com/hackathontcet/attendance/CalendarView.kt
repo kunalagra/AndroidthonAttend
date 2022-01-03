@@ -135,7 +135,6 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         ArrayList.clear()
         for(i in Sname.indices){
             val namel = Name(Rid[i],Sname[i],absentS[i])
-            Log.i("getUserdata","$namel")
             ArrayList.add(namel)
         }
         val adapter = MyAdapter(ArrayList)

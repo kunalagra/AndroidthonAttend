@@ -25,6 +25,7 @@ class AboutHomeScreen : AppCompatActivity() {
                     startActivity(Intent(this,ProfileHomeScreen::class.java))
                 }
             }
+            finish()
             true
         }
     }

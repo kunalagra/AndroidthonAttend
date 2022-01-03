@@ -50,6 +50,7 @@ class ProfileHomeScreen : AppCompatActivity() {
                     startActivity(Intent(this, AboutHomeScreen::class.java))
                 }
             }
+            finish()
             true
         }
     }

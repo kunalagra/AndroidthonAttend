@@ -1,16 +1,16 @@
 package com.hackathontcet.attendance.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hackathontcet.attendance.DetailFragment
-import com.hackathontcet.attendance.R
-import com.hackathontcet.attendance.RecyclerAdapter
-import com.hackathontcet.attendance.Subjects
+import com.hackathontcet.attendance.*
+import java.text.FieldPosition
 
 //// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //private const val ARG_PARAM1 = "param1"
@@ -63,6 +63,9 @@ import com.hackathontcet.attendance.Subjects
 
 
 class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
+    lateinit var Rid : Array<Int>
+    lateinit var Sname : Array<String>
+
     private lateinit var adapter : RecyclerAdapter
     val subjects : ArrayList<Subjects> = ArrayList()
     lateinit var imageId : Array<Int>
@@ -77,19 +80,32 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        getUserData()
         initRecyclerView(view)
         return view
     }
 
     private fun initRecyclerView(view : View){
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_view)
+        recyclerView.clearAnimation()
         recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.setHasFixedSize(true)
+        getUserData()
         adapter = RecyclerAdapter(subjects,this)
         recyclerView.adapter = adapter
+
+        adapter.setOnClickListener(object : RecyclerAdapter.ClickListener {
+            override fun onItemClick(position: Int, subject: String) {
+                val intent = Intent(activity, CalendarView::class.java)
+                intent.putExtra("key1", subject)
+                intent.putExtra("key2", Sname)
+                intent.putExtra("key3", Rid)
+                startActivity(intent)
+            }
+        })
     }
 
     private fun getUserData(){
+        subjects.clear()
         imageId = arrayOf(
             R.drawable.phy_icon,
             R.drawable.chem_icon,
@@ -116,12 +132,35 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
             }
     }
 
-    override fun onItemClick(subjects: Subjects) {
-        val fragment : Fragment = DetailFragment.newInstance(subjects.subjectName!!)
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.hide(activity?.supportFragmentManager!!.findFragmentByTag("main_fragment")!!)
-        transaction?.add(R.id.fl_wrapper,fragment)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
+
+
+
+    override fun onItemClick(position: Int, subject: String) {
+//        val fragment : Fragment = DetailFragment.newInstance(subjects.subjectName!!)
+//        val transaction = activity?.supportFragmentManager?.beginTransaction()
+//        transaction?.hide(activity?.supportFragmentManager!!.findFragmentByTag("main_fragment")!!)
+//        transaction?.add(R.id.fl_wrapper,fragment)
+//        transaction?.addToBackStack(null)
+//        transaction?.commit()
+//        if (::Sname.isInitialized) {
+//            val intent = Intent(this@HomeFragment.requireContext(), CalendarView::class.java)
+//            intent.putExtra("key1", subject)
+//            intent.putExtra("key2", Sname)
+//            intent.putExtra("key3", Rid)
+//            startActivity(intent)
+//
+//        } else {
+//            Toast.makeText(
+//                this@HomeFragment.requireContext(),
+//                "Fetching Data. Retry Again",
+//                Toast.LENGTH_SHORT
+//            ).show()
+//            Thread.sleep(500)
+//        }
+        val intent = Intent(activity, CalendarView::class.java)
+        intent.putExtra("key1", subject)
+        intent.putExtra("key2", Sname)
+        intent.putExtra("key3", Rid)
+        startActivity(intent)
     }
 }

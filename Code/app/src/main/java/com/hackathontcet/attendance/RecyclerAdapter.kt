@@ -62,26 +62,24 @@ import com.google.android.material.imageview.ShapeableImageView
 
 
 class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: ClickListener) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>(){
+
+    private lateinit var mListener: ClickListener
+
+    fun setOnClickListener(listener: ClickListener){
+        mListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.subjects,parent,false)
 
-        return MyViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = subjectList[position]
-        holder.titleTextView.text = currentItem.subjectName
-        holder.imageView.setImageResource(currentItem.subjectImage)
-        holder.itemView.setOnClickListener{
-            clickListener.onItemClick(subjectList.get(position))
-        }
+        return RecyclerAdapter.MyViewHolder(view,mListener)
     }
 
     override fun getItemCount(): Int {
         return subjectList.size
     }
 
-    class MyViewHolder(view : View): RecyclerView.ViewHolder(view){
+    class MyViewHolder(view: View, listener: ClickListener): RecyclerView.ViewHolder(view){
         var titleTextView : TextView
         var imageView : ImageView = view.findViewById(R.id.subject_icon)
 
@@ -91,6 +89,15 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
     }
 
     interface ClickListener {
-        fun onItemClick(subjects: Subjects)
+        fun onItemClick(position: Int, subject: String)
+    }
+
+    override fun onBindViewHolder(holder: RecyclerAdapter.MyViewHolder, position: Int) {
+        val currentItem = subjectList[position]
+        holder.titleTextView.text = currentItem.subjectName
+        holder.imageView.setImageResource(currentItem.subjectImage)
+        holder.itemView.setOnClickListener{
+            clickListener.onItemClick(position,subjectList[position].toString())
+        }
     }
 }

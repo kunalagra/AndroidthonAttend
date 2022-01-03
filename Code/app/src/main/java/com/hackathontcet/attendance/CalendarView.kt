@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -48,6 +49,9 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             if (::studentName.isInitialized) {
                 click.text = "Fetch Data"
                 var temp = ""
+                if (savedyear==0){
+                    Toast.makeText(this, "Please Select a Date", Toast.LENGTH_SHORT).show()
+                }else{
                 when {
                     absent[0] == -1 -> {
                         for (i in studentRoll) {
@@ -81,7 +85,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                     }
                 }
                 getUserdata()
-            }else{
+            }}else{
                 Thread.sleep(200)
             }
         }

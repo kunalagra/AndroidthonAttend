@@ -83,6 +83,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
 
     private fun initRecyclerView(view : View){
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_view)
+        recyclerView.clearAnimation()
         recyclerView.layoutManager = LinearLayoutManager(activity)
         adapter = RecyclerAdapter(subjects,this)
         recyclerView.adapter = adapter

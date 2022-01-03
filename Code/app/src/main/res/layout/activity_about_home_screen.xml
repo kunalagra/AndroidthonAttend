@@ -7,74 +7,15 @@
     tools:context=".AboutHomeScreen">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textSize="20dp"
-        android:text="Developers"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textSize="20dp"
-        android:text="Aman Tiwari"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textSize="20dp"
-        android:text="Deexith Madas"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="70dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textSize="20dp"
-        android:text="Ganesh Utla"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="90dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textSize="20dp"
-        android:text="Kunal Aggarawal"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="110dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textSize="20dp"
-        android:text="Vaibhav Ashta"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="130dp" />
-
-
-    <TextView
         android:id="@+id/about_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About Us"
+        android:text="@string/aboutText"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/about_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="Back to Home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/about_text" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
@@ -83,8 +24,8 @@
         android:layout_alignParentBottom="true"
         android:background="@color/md_theme_light_primary"
         app:itemBackground="@color/md_theme_light_primary"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/nav_about" />
 

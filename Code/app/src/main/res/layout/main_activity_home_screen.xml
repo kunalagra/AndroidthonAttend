@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeScreenMainActivity">
-
+<!--
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="120dp"/>
-
+-->
     <FrameLayout
         android:id="@+id/fl_wrapper"
         android:layout_width="match_parent"

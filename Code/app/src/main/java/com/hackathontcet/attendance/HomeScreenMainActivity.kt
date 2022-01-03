@@ -3,6 +3,7 @@ package com.hackathontcet.attendance
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -140,14 +141,25 @@ class HomeScreenMainActivity : AppCompatActivity() {
 
         adapter.setOnClickListener(object : RecyclerAdapter.onItemClickListener {
             override fun onItemClick(position: Int, subject: String) {
-                val intent = Intent(this@HomeScreenMainActivity, CalendarView::class.java)
-                intent.putExtra("key1", subject)
-                intent.putExtra("key2", Sname)
-                intent.putExtra("key3", Rid)
-                startActivity(intent)
+                if (::Sname.isInitialized) {
+                    val intent = Intent(this@HomeScreenMainActivity, CalendarView::class.java)
+                    intent.putExtra("key1", subject)
+                    intent.putExtra("key2", Sname)
+                    intent.putExtra("key3", Rid)
+                    startActivity(intent)
+
+                } else {
+                    Toast.makeText(
+                        this@HomeScreenMainActivity,
+                        "Fetching Data. Retry Again",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    Thread.sleep(500)
+                }
 
 
             }
         })
     }
+
 }

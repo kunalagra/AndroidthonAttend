@@ -16,19 +16,14 @@ import com.google.firebase.ktx.Firebase
 import com.hackathontcet.attendance.MainActivity
 import com.hackathontcet.attendance.R
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class ProfileFragment : Fragment() {
+    // Creating a variable for the Firebase Authorization
     private lateinit var mAuth: FirebaseAuth
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -55,14 +50,15 @@ class ProfileFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             ProfileFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
                 }
             }
     }
 
     @SuppressLint("SetTextI18n")
     private fun loadProfile(view: View) {
+        /* It will give the Current user's Id as well as Email registered by him */
+
         val user = Firebase.auth.currentUser
         user?.let {
             val email = user.email

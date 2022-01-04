@@ -9,69 +9,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 
-//class RecyclerAdapter(private val subjectList : ArrayList<Subjects>) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-//
-//    private lateinit var mListener: onItemClickListener
-//
-//    interface onItemClickListener{
-//        fun onItemClick(position: Int, subjects: String)
-//    }
-//
-//    fun setOnClickListener(listener: onItemClickListener){
-//        mListener = listener
-//    }
-//
-//    fun deleteItem(i: Int){
-//        subjectList.removeAt(i)
-//        notifyDataSetChanged()
-//    }
-//
-//    fun addItem(i: Int, subjects: Subjects){
-//        subjectList.add(i,subjects)
-//        notifyDataSetChanged()
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.subjects,parent,false)
-//        return ViewHolder(itemView,mListener)
-//    }
-//
-//    override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
-//
-//        val currentItem = subjectList[position]
-//        holder.subjectImage.setImageResource(currentItem.subjectImage)
-//        holder.subjectName.text = currentItem.subjectName
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return subjectList.size
-//    }
-//
-//    inner class ViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
-//
-//        val subjectImage : ShapeableImageView = itemView.findViewById(R.id.subject_icon)
-//        val subjectName : TextView = itemView.findViewById(R.id.subject_name)
-//
-//        // Tells the position of the particular subject view and subject name
-//        init{
-//            itemView.setOnClickListener{
-//                listener.onItemClick(adapterPosition, subjectName.text as String)
-//            }
-//        }
-//    }
-//}
-
-
 class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: ClickListener) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>(){
 
     @SuppressLint("NotifyDataSetChanged")
     fun deleteItem(i: Int){
+        /* It deletes the particular item in the list */
         subjectList.removeAt(i)
         notifyDataSetChanged()
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun addItem(i: Int, subjects: Subjects){
+        /* It add the particular item in the list */
         subjectList.add(i,subjects)
         notifyDataSetChanged()
     }
@@ -83,6 +32,8 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
+        /* Setting the Image and Name/Title of the item in the list */
         val currentItem = subjectList[position]
         holder.titleTextView.text = currentItem.subjectName
         holder.imageView.setImageResource(currentItem.subjectImage)
@@ -96,9 +47,9 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
     }
 
     class MyViewHolder(view : View): RecyclerView.ViewHolder(view){
+        /* Declaring the variables for the ImageView and TextView for the items in the list */
         var titleTextView : TextView
         var imageView : ImageView = view.findViewById(R.id.subject_icon)
-
         init {
             titleTextView = view.findViewById(R.id.subject_name)
         }

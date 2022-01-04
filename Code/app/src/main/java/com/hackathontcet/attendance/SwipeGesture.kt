@@ -10,11 +10,13 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 abstract class SwipeGesture(context : Context): ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or
         ItemTouchHelper.START or ItemTouchHelper.END,ItemTouchHelper.LEFT) {
 
+    // Setting the Color and the Icon during the Archive process
     val archiveColor = ContextCompat.getColor(context,R.color.archive_color)
     val archiveIcon = R.drawable.ic_archive
 
     override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
 
+        /* It will set the Given Swipe Gesture for the Archive process */
         RecyclerViewSwipeDecorator.Builder(c,recyclerView,viewHolder,dX,dY,actionState,isCurrentlyActive)
             .addSwipeLeftBackgroundColor(archiveColor)
             .addSwipeLeftActionIcon(archiveIcon)

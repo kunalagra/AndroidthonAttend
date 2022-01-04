@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -34,7 +35,7 @@ class ProfileFragment : Fragment() {
 
         loadProfile(view)
 
-        val button: Button = view.findViewById(R.id.profile_button)
+        val button: CardView = view.findViewById(R.id.profile_button)
 
         button.setOnClickListener {
             startActivity(Intent(activity, MainActivity::class.java))

@@ -2,7 +2,6 @@ package com.hackathontcet.attendance.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -49,7 +48,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv_view)
         recyclerView.clearAnimation()
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = RecyclerAdapter(subjects,this)
+        adapter = RecyclerAdapter(subjects,this@HomeFragment)
         recyclerView.adapter = adapter
 
         // This variable is used for doing the Left Swipe Gesture and the Drop Down Gesture

@@ -58,13 +58,14 @@ class ProfileFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun loadProfile(view: View) {
-        /* It will give the Current user's Id as well as Email registered by him */
+        /* It will give the Current user's ID (Firebase) as well as Email registered by him */
 
         val user = Firebase.auth.currentUser
         user?.let {
             val email = user.email
             var uid = user.uid
-            uid=uid.drop(8  )
+            // Drops first 8 character to make the ID shorter
+            uid=uid.drop(8)
             val currentName = view.findViewById<TextView>(R.id.profile_name_text)
             val currentEmail = view.findViewById<TextView>(R.id.profile_email_text)
             currentName.text = "UserID : " + uid

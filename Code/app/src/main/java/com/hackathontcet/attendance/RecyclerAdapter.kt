@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: ClickListener) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>(){
+class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener:  ClickListener) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>(){
 
     @SuppressLint("NotifyDataSetChanged")
     fun deleteItem(i: Int){

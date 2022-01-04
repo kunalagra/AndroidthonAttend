@@ -5,52 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.AboutFragment">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="120dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:textAlignment="center">
-
-            <TextView
-                android:id="@+id/about_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Developers: "
-                android:fontFamily="monospace"
-                android:textStyle="bold"
-                android:textSize="29sp"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:id="@+id/about_text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Aman Tiwari\nKunal Agrawal\nDeexith Madas\nVaibhav Ashta\nGanesh Utla"
-                android:fontFamily="monospace"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:id="@+id/about_text3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thank you for this opportunity!!...\n\nWe gained so much experience through this competition in terms of Teamwork, Coding, etc.. So once again thank you and have a great day..."
-                android:fontFamily="monospace"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginTop="30dp"/>
-
-        </LinearLayout>
-    </ScrollView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

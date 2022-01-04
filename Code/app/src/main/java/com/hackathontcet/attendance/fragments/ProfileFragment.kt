@@ -63,11 +63,12 @@ class ProfileFragment : Fragment() {
         val user = Firebase.auth.currentUser
         user?.let {
             val email = user.email
-            val uid = user.uid
+            var uid = user.uid
+            uid=uid.drop(8  )
             val currentName = view.findViewById<TextView>(R.id.profile_name_text)
             val currentEmail = view.findViewById<TextView>(R.id.profile_email_text)
-            currentName.text = "UserID: \n" + uid
-            currentEmail.text = "Email: " + email.toString()
+            currentName.text = "UserID : " + uid
+            currentEmail.text = "Email  : " + email.toString()
         }
     }
 

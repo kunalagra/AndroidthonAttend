@@ -7,9 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hackathontcet.attendance.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 //// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 //private const val ARG_PARAM1 = "param1"
@@ -88,6 +91,34 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
         adapter = RecyclerAdapter(subjects,this)
         recyclerView.adapter = adapter
 
+        val swipegesture = object : SwipeGesture(this@HomeFragment.requireContext()) {
+
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                val from_pos = viewHolder.adapterPosition
+                val to_pos = target.adapterPosition
+
+                Collections.swap(subjects, from_pos, to_pos)
+                adapter.notifyItemMoved(from_pos, to_pos)
+
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                when (direction) {
+                    ItemTouchHelper.LEFT -> {
+                        val archiveItem = subjects[viewHolder.adapterPosition]
+                        adapter.deleteItem(viewHolder.adapterPosition)
+                        adapter.addItem(subjects.size, archiveItem)
+
+                    }
+                }
+            }
+        }
+        val touchHelper = ItemTouchHelper(swipegesture)
+        touchHelper.attachToRecyclerView(recyclerView)
+
+        recyclerView.adapter = adapter
+
     }
 
     private fun getUserData(){
@@ -106,6 +137,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
         for (i in imageId.indices){
             subjects.add(Subjects(imageId[i],name[i]))
         }
+
     }
 
     companion object {

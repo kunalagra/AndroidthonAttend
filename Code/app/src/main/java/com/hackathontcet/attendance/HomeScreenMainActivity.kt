@@ -56,7 +56,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
         transaction.replace(R.id.fl_wrapper, fragment)
         transaction.commit()
     }
-//
+
 //    private fun getUserdata() {
 //        for (i in imageId.indices) {
 //            val subject = Subjects(imageId[i], name[i])

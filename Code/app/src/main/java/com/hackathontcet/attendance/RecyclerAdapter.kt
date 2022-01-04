@@ -1,5 +1,6 @@
 package com.hackathontcet.attendance
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,6 +63,19 @@ import com.google.android.material.imageview.ShapeableImageView
 
 
 class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: ClickListener) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>(){
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun deleteItem(i: Int){
+        subjectList.removeAt(i)
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addItem(i: Int, subjects: Subjects){
+        subjectList.add(i,subjects)
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.subjects,parent,false)
 

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
 
 class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: ClickListener) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>(){
 
@@ -25,7 +24,7 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.subjects,parent,false)
 
         return MyViewHolder(view)
@@ -48,14 +47,41 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
 
     class MyViewHolder(view : View): RecyclerView.ViewHolder(view){
         /* Declaring the variables for the ImageView and TextView for the items in the list */
-        var titleTextView : TextView
+        var titleTextView : TextView = view.findViewById(R.id.subject_name)
         var imageView : ImageView = view.findViewById(R.id.subject_icon)
-        init {
-            titleTextView = view.findViewById(R.id.subject_name)
-        }
     }
 
     interface ClickListener {
         fun onItemClick(subjects: String)
     }
 }
+class MyAdapter(private val NameList : ArrayList<Name>): RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.data_list, parent, false)
+        return MyViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val currentUser = NameList[position]
+
+        holder.textname.text = currentUser.name
+        holder.rid.text = currentUser.rid.toString()
+        holder.absent.text = currentUser.absent
+
+    }
+
+    override fun getItemCount(): Int {
+        return NameList.size
+
+    }
+
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val textname: TextView = itemView.findViewById(R.id.name)
+        val rid: TextView = itemView.findViewById(R.id.rollno)
+        val absent: TextView = itemView.findViewById(R.id.absent)
+
+    }
+}
+
+

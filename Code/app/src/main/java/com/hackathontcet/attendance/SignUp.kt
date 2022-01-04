@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity2 : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
 
     private lateinit var username: EditText
     private lateinit var email: EditText
@@ -18,7 +18,7 @@ class MainActivity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.avtivity_signup)
         mAuth = FirebaseAuth.getInstance()
 
         username = findViewById(R.id.username)
@@ -33,21 +33,21 @@ class MainActivity2 : AppCompatActivity() {
             if(email.isEmpty() or username.isEmpty() or password.isEmpty()) {
                 if (email.isEmpty()) {
                     Toast.makeText(
-                        this@MainActivity2,
+                        this@SignUp,
                         "Please enter email address.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 if (username.isEmpty()) {
                     Toast.makeText(
-                        this@MainActivity2,
+                        this@SignUp,
                         "Please enter name.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 if (password.isEmpty()) {
                     Toast.makeText(
-                        this@MainActivity2,
+                        this@SignUp,
                         "Please enter password.",
                         Toast.LENGTH_SHORT
                     ).show()
@@ -64,11 +64,11 @@ class MainActivity2 : AppCompatActivity() {
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val intent = Intent(this@MainActivity2, HomeScreenMainActivity::class.java)
+                    val intent = Intent(this@SignUp, HomeScreenMainActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(this@MainActivity2, "SignUp Successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignUp, "SignUp Successful", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@MainActivity2, "Error Occurred Try Again", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignUp, "Error Occurred Try Again", Toast.LENGTH_SHORT).show()
                 }
             }
 

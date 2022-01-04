@@ -40,7 +40,6 @@
     <string name="profile">Profile</string>
     <string name="home">Home</string>
     <string name="about">About</string>
-    <string name="aboutText">Team Members: \n\nAman Tiwari\nKunal Agrawal\nDeexith Madas\nVaibhav Ashta\nGanesh Utla</string>
     <string name="profileText">Profile</string>
     <string name="cv_date">Select Date:</string>
     <string name="selected_date">select</string>

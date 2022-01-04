@@ -47,13 +47,6 @@ class HomeScreenMainActivity : AppCompatActivity() {
             }
             true
         }
-
-//        newRecyclerView = findViewById(R.id.rv_view)
-//        newRecyclerView.layoutManager = LinearLayoutManager(this)
-//        newRecyclerView.setHasFixedSize(true)
-//
-//        newArrayList = arrayListOf<Subjects>()
-//        getUserdata()
     }
 
 
@@ -122,8 +115,6 @@ class HomeScreenMainActivity : AppCompatActivity() {
 //                    ).show()
 //                    Thread.sleep(500)
 //                }
-//
-//
 //            }
 //        })
 //    }

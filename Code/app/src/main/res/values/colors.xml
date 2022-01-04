@@ -54,4 +54,5 @@
     <color name="error">#BA1B1B</color>
     <color name="archive_color">#7E7D7D</color>
     <color name="subject_color">#F1739E</color>
+    <color name="outline">#9C9C9C</color>
 </resources>

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,7 +46,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         val click : TextView = findViewById(R.id.result_date_time)
         click.setOnClickListener {
             if (::studentName.isInitialized) {
-                click.text = "Fetch Data"
+                click.text = "Refresh Data"
                 var temp = ""
                 if (savedyear==0){
                     Toast.makeText(this, "Please Select a Date", Toast.LENGTH_SHORT).show()
@@ -73,9 +72,9 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                             temp = temp.plus(",Present")
                         }
                         temp = temp.drop(1)
-                        var temab = temp.split(",").toTypedArray()
+                        val temab = temp.split(",").toTypedArray()
                         for (i in absent.indices) {
-                            var ab = absent[i]
+                            val ab = absent[i]
                             if (ab == studentRoll[ab - 1]) {
                                 temab[ab - 1] = "Absent"
                             }

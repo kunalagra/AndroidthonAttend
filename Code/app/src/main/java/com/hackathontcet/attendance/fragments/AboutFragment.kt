@@ -2,6 +2,7 @@ package com.hackathontcet.attendance.fragments
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,15 +11,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.hackathontcet.attendance.AboutAdapter
 import com.hackathontcet.attendance.R
 import com.hackathontcet.attendance.RecyclerAdapter
 import com.hackathontcet.attendance.Subjects
 import kotlin.collections.ArrayList
 
-class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
-    private lateinit var adapter : RecyclerAdapter
+class AboutFragment : Fragment(),AboutAdapter.ClickListener {
+    private lateinit var adapter : AboutAdapter
 
     val names : ArrayList<Subjects> = ArrayList()
 
@@ -37,20 +40,17 @@ class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
 
         getUserData()
         initRecyclerView(view)
-
-
-        //CardView.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
-
         return view
     }
     private fun initRecyclerView(view: View){
         /* This function will initialize the Recycler View */
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.rv_view)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.rv2_view)
         recyclerView.clearAnimation()
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = RecyclerAdapter(names,this@AboutFragment)
+        adapter = AboutAdapter(names,this@AboutFragment)
         recyclerView.adapter = adapter
+
 
     }
     private fun getUserData(){
@@ -84,7 +84,6 @@ class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
     }
 
     override fun onItemClick(names: String) {
-
         Log.i("name","$names")
     }
 }

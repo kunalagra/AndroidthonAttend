@@ -10,6 +10,7 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,8 +18,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/icon_data"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,16 +32,15 @@
             android:id="@+id/name_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+
             android:layout_marginStart="16dp"
-            android:layout_marginTop="28dp"
             android:layout_marginEnd="10dp"
-            android:paddingTop="10dp"
+            android:paddingTop="24dp"
             android:text="@string/subject_name"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintHorizontal_bias="0.01"
             app:layout_constraintStart_toEndOf="@id/icon_data"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -55,4 +55,5 @@
     <color name="archive_color">#BA4974</color>//#7E7D7E
     <color name="subject_color">#F1739E</color>
     <color name="outline">#9C9C9C</color>
+    <color name="lightGray">#8D8C8C</color>
 </resources>

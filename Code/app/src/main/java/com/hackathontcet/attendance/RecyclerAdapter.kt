@@ -59,20 +59,6 @@ class RecyclerAdapter(val subjectList : ArrayList<Subjects>, val clickListener: 
 
 class AboutAdapter(val dnameList : ArrayList<Subjects>, val clickListener:  ClickListener) : RecyclerView.Adapter<AboutAdapter.MyViewHolder>(){
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun deleteItem(i: Int){
-        /* It deletes the particular item in the list */
-        dnameList.removeAt(i)
-        notifyDataSetChanged()
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun addItem(i: Int, subjects: Subjects){
-        /* It add the particular item in the list */
-        dnameList.add(i,subjects)
-        notifyDataSetChanged()
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.namelist,parent,false)
 

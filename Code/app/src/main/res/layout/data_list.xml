@@ -18,7 +18,7 @@
                 android:id="@+id/rollno"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Roll No"
+                android:text="@string/roll_no"
                 android:textSize="18dp"
                 android:gravity="center"/>
         </LinearLayout>
@@ -32,7 +32,7 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="@string/name"
                 android:textSize="18dp"
                 android:gravity="center"/>
         </LinearLayout>
@@ -45,7 +45,7 @@
                 android:id="@+id/absent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Absent"
+                android:text="@string/attendance"
                 android:textSize="18dp"
                 android:gravity="center"/>
         </LinearLayout>

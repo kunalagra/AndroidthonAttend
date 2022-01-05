@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginBottom="28dp"
-        android:text="GNU General Public License v3.0"
+        android:text="@string/gnu_general_public_license_v3_0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -1,23 +1,17 @@
 package com.hackathontcet.attendance.fragments
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hackathontcet.attendance.R
 import com.hackathontcet.attendance.AboutAdapter
+import com.hackathontcet.attendance.R
 import com.hackathontcet.attendance.Subjects
-import kotlin.collections.ArrayList
 
 class AboutFragment : Fragment(),AboutAdapter.ClickListener {
     private lateinit var adapter : AboutAdapter
@@ -75,18 +69,10 @@ class AboutFragment : Fragment(),AboutAdapter.ClickListener {
         }
 
     }
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AboutFragment().apply {
-                arguments = Bundle().apply {
+    companion object;
 
-                }
-            }
-    }
-
-    override fun onItemClick(names: String) {
-        when (names) {
+    override fun onItemClick(subjects: String) {
+        when (subjects) {
             "Kunal Agrawal" -> {
                 startActivity( Intent(Intent.ACTION_VIEW,Uri.parse("https://github.com/kunalagra")))
             }

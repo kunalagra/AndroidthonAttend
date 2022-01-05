@@ -54,7 +54,7 @@ class SignUp : AppCompatActivity() {
                 }
             }
             else{
-                signUp(username,email,password);
+                signUp(username,email,password)
             }
 
         }

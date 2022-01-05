@@ -46,7 +46,7 @@ class Login : AppCompatActivity() {
                 }
             }
             else{
-                login(username,password);
+                login(username,password)
             }
         }
 

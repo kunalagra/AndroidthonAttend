@@ -57,7 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="3"
+            android:baselineAligned="false">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -67,7 +68,7 @@
                 android:id="@+id/rollno"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Roll No"
+                android:text="@string/roll_no"
                 android:textSize="18dp"
                 android:gravity="center"/>
         </LinearLayout>
@@ -81,7 +82,7 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="@string/name"
                 android:textSize="18dp"
                 android:gravity="center"/>
         </LinearLayout>
@@ -94,7 +95,7 @@
                 android:id="@+id/absent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Attendance"
+                android:text="@string/attendance"
                 android:textSize="18dp"
                 android:gravity="center"/>
         </LinearLayout>

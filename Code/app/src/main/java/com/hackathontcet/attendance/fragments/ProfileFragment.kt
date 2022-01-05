@@ -3,14 +3,13 @@ package com.hackathontcet.attendance.fragments
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -46,15 +45,7 @@ class ProfileFragment : Fragment() {
         return view
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-
-                }
-            }
-    }
+    companion object;
 
     @SuppressLint("SetTextI18n")
     private fun loadProfile(view: View) {
@@ -68,7 +59,7 @@ class ProfileFragment : Fragment() {
             uid=uid.drop(8)
             val currentName = view.findViewById<TextView>(R.id.profile_name_text)
             val currentEmail = view.findViewById<TextView>(R.id.profile_email_text)
-            currentName.text = "UserID : " + uid
+            currentName.text = "UserID : $uid"
             currentEmail.text = "Email  : " + email.toString()
         }
     }

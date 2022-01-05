@@ -8,21 +8,24 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_centerHorizontal="true"
         android:layout_width="400dp"
         android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/signup_page_logo"
         app:srcCompat="@drawable/loginm" />
 
     <EditText
-        android:layout_centerHorizontal="true"
         android:id="@+id/username"
         android:layout_width="316dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="350dp"
         android:layout_marginRight="28dp"
         android:background="@drawable/background"
         android:hint="@string/username"
+        android:importantForAutofill="no"
+        android:inputType="textShortMessage|text"
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"

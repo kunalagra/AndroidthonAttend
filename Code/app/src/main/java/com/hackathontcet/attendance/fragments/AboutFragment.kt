@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,8 +35,10 @@ class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
         maz.globalVar = 1
         getUserData()
         initRecyclerView(view)
-
-
+        val scode = view.findViewById<TextView>(R.id.textView5)
+        scode.setOnClickListener{
+            startActivity( Intent(Intent.ACTION_VIEW,Uri.parse("https://github.com/kunalagra/AndroidthonAttend")))
+        }
         //CardView.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
 
         return view

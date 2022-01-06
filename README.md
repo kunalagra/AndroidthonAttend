@@ -23,17 +23,23 @@ we intend to launch it globally.
 ## How it works?
 
 1. Signup or login
-   ![Signup](C:\Users\amant\StudioProjects\AndroidthonAttend\Code\app\src\main\res\drawable\signup.jpeg)
-   ![login](C:\Users\amant\StudioProjects\AndroidthonAttend\Code\app\src\main\res\drawable\login.jpeg)
+
+   ![Signup](https://user-images.githubusercontent.com/96176706/148374004-b2a023f8-a371-40fb-a256-c822d2c9eef1.jpeg)
+   ![login](https://user-images.githubusercontent.com/96176706/148374251-09b73903-19b7-48f9-94f4-11c5761f28e8.jpeg)
 
 2. Home Screen & Choose Subject
-   ![Home Screen](C:\Users\amant\StudioProjects\AndroidthonAttend\Code\app\src\main\res\drawable\Homescreen.jpeg)
-      
-3. Select Date
-   ![Date](C:\Users\amant\StudioProjects\AndroidthonAttend\Code\app\src\main\res\drawable\Selectdate.jpeg)
+
+   ![Homescreen](https://user-images.githubusercontent.com/96176706/148374365-743acb53-4a2f-4f6e-880e-e987cf0592dc.jpeg)
    
+3. Select Date
+   
+   ![Selectdate](https://user-images.githubusercontent.com/96176706/148374406-8b1eb15c-315a-4aa3-884b-d09deb97b252.jpeg)
+
 4. Data
-   @[Data](drawable/Data.jpeg)
+ 
+   ![Data](https://user-images.githubusercontent.com/96176706/148374450-992037b6-407c-4d68-99a7-34cfcb22dd9d.jpeg)
+
+
 
 ## Concepts used :-
 

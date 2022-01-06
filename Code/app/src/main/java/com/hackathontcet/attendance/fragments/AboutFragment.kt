@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hackathontcet.attendance.AboutAdapter
+import com.hackathontcet.attendance.RecyclerAdapter
 import com.hackathontcet.attendance.R
 import com.hackathontcet.attendance.Subjects
 
-class AboutFragment : Fragment(),AboutAdapter.ClickListener {
-    private lateinit var adapter : AboutAdapter
+class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
+    private lateinit var adapter : RecyclerAdapter
 
     val names : ArrayList<Subjects> = ArrayList()
 
@@ -25,12 +25,13 @@ class AboutFragment : Fragment(),AboutAdapter.ClickListener {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
+
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view= inflater.inflate(R.layout.fragment_about, container, false)
-
+        maz.globalVar = 1
         getUserData()
         initRecyclerView(view)
 
@@ -45,7 +46,7 @@ class AboutFragment : Fragment(),AboutAdapter.ClickListener {
         val recyclerView = view.findViewById<RecyclerView>(R.id.rv2_view)
         recyclerView.clearAnimation()
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        adapter = AboutAdapter(names,this@AboutFragment)
+        adapter = RecyclerAdapter(names,this@AboutFragment)
         recyclerView.adapter = adapter
 
     }

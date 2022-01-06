@@ -17,7 +17,7 @@
         android:foreground="?selectableItemBackground">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/icon_data"
+            android:id="@+id/subject_icon"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:adjustViewBounds="true"
@@ -29,7 +29,7 @@
             android:src="@mipmap/ic_launcher_round"/>
 
         <TextView
-            android:id="@+id/name_data"
+            android:id="@+id/subject_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
@@ -41,7 +41,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.01"
-            app:layout_constraintStart_toEndOf="@id/icon_data"
+            app:layout_constraintStart_toEndOf="@id/subject_icon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
@@ -50,7 +50,7 @@
             android:layout_margin="8dp"
             android:paddingTop="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon_data" />
+            app:layout_constraintTop_toBottomOf="@id/subject_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,6 @@
 package com.hackathontcet.attendance.fragments
 
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,8 +14,13 @@ import com.hackathontcet.attendance.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-
+class maz: Application(){
+    companion object {
+        var globalVar = 0
+    }
+}
 class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
+
 
     // Declaring the adapter variable for RecyclerAdapter
     private lateinit var adapter : RecyclerAdapter
@@ -35,11 +41,9 @@ class HomeFragment : Fragment(), RecyclerAdapter.ClickListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
+        maz.globalVar = 0
         getUserData()
-
         initRecyclerView(view)
-
         return view
     }
 

@@ -24,9 +24,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var userlayout: RecyclerView
     private lateinit var ArrayList: ArrayList<Name>
-  //  private lateinit var adapter: MyAdapter
-    //private lateinit var mAuth: FirebaseAuth
-    //private lateinit var data: DatabaseReference
+
     lateinit var studentRoll : Array<Int>
     lateinit var studentName : Array<String>
     var absentS = arrayOf("")
@@ -45,12 +43,14 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         pickDate()
         val click : TextView = findViewById(R.id.result_date_time)
         click.setOnClickListener {
-            if (::studentName.isInitialized) {
+            if (savedyear==0){
+                Toast.makeText(this, "Please Select a Date", Toast.LENGTH_SHORT).show()
+            }
+            // Check if Data is first loaded first
+            else if (::studentName.isInitialized) {
                 click.text = "Refresh Data"
                 var temp = ""
-                if (savedyear==0){
-                    Toast.makeText(this, "Please Select a Date", Toast.LENGTH_SHORT).show()
-                }else{
+                // Get list of absent roll no.s and transform them into Array
                 when {
                     absent[0] == -1 -> {
                         for (i in studentRoll) {
@@ -67,6 +67,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                         temp = temp.drop(1)
                         absentS = temp.split(",").toTypedArray()
                     }
+                    // Generate Array of Present/Absent/No Data for absent array
                     else -> {
                         for (i in studentRoll) {
                             temp = temp.plus(",Present")
@@ -83,22 +84,26 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
                     }
                 }
+
                 getUserdata()
-            }}else{
+            }else{
                 Thread.sleep(200)
             }
         }
 
     }
     private fun getStudent(){
+        // Thread to parallel load the data of students from Firebase's Realtime Database
         val thread = Thread {
             val ref = database.reference
             ref.child("StuTab/").get().addOnSuccessListener {
                 if (it.exists()) {
                     var namez = "${it.value}"
+                    // Cleaning u the data
                     namez = namez.drop(1)
                     namez = namez.replace("]", "")
                     namez = namez.replace("null, ", "")
+                    // Transforming comma String to Array
                     studentName = namez.split(", ").toTypedArray()
                     var tempnum = ""
                     var aa = 1
@@ -109,6 +114,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                     }
                     tempnum = tempnum.drop(1)
                     val tRid = tempnum.split(",").toTypedArray()
+                    // COnvert string array to int array
                     studentRoll = tRid.map { it.toInt() }.toTypedArray()
 
                 }
@@ -120,6 +126,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     }
     private fun getUserdata(){
+        // Send data to Adapter (RecylerView) to and display it accordingly
         ArrayList.clear()
         for(i in studentName.indices){
             val namel = Name(studentRoll[i],studentName[i],absentS[i])
@@ -131,19 +138,19 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
     }
 
-    private fun getDateCalendar() {
-        val cal : Calendar = Calendar.getInstance()
-        day = cal.get(Calendar.DAY_OF_MONTH)
-        month = cal.get(Calendar.MONTH)
-        year = cal.get(Calendar.YEAR)
-    }
+
 
     private fun pickDate() {
+        // datePicker Code with maxDate as current Date
         val seldate : Button = findViewById(R.id.selected_date)
         seldate.setOnClickListener{
-            getDateCalendar()
-
-            DatePickerDialog(this, this, year, month, day).show()
+            val cal : Calendar = Calendar.getInstance()
+            day = cal.get(Calendar.DAY_OF_MONTH)
+            month = cal.get(Calendar.MONTH)
+            year = cal.get(Calendar.YEAR)
+            val dia = DatePickerDialog(this, this, year, month, day)
+            dia.datePicker.maxDate = cal.timeInMillis
+            dia.show()
         }
     }
 
@@ -152,15 +159,19 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         savedday = p3
         savedmonth = p2 + 1
         savedyear = p1
+        // to make to format of dd/MM/yyyy
         nmonth = savedmonth.toString()
         nday = savedday.toString()
         nmonth = "$savedmonth".padStart(2, '0')
         nday = "$savedday".padStart(2, '0')
+        // Get the subject var from the Home intent and display the date
         val intent = intent
         val subject = intent.getStringExtra("key1")
         var ab: String
         val seldate: Button = findViewById(R.id.selected_date)
         seldate.text = "${nday}-${nmonth}-${savedyear}"
+        // Get the list of Absent roll no from the Firebase Realtime DB and store in array format
+
         val ref = database.getReference("$subject/")
         ref.child("$nday$nmonth$savedyear").get().addOnSuccessListener {
             ab = "${it.value}"
@@ -168,6 +179,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                 val tabsent = ab.split(",").toTypedArray()
                 tabsent.map { it.toInt() }.toTypedArray()
             } else{
+                // If no data (ie null is sent back
                 arrayOf(-1)
             }
         }

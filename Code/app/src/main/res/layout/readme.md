@@ -1,8 +1,8 @@
+
 # Attendance Manager app
 
 This readme file is designed for FYJC students of Thakur College to
 help them navigate easily thorugh our app
-
 ## Problem Statement :-
 
 Due to COVID pandemic all colleges have started using digital
@@ -30,16 +30,14 @@ we intend to launch it globally.
 2. Home Screen & Choose Subject
 
    ![Homescreen](https://user-images.githubusercontent.com/96176706/148374365-743acb53-4a2f-4f6e-880e-e987cf0592dc.jpeg)
-   
+
 3. Select Date
-   
+
    ![Selectdate](https://user-images.githubusercontent.com/96176706/148374406-8b1eb15c-315a-4aa3-884b-d09deb97b252.jpeg)
 
 4. Data
- 
+
    ![Data](https://user-images.githubusercontent.com/96176706/148374450-992037b6-407c-4d68-99a7-34cfcb22dd9d.jpeg)
-
-
 
 ## Concepts used :-
 
@@ -82,7 +80,7 @@ of concepts used in our app.
   cross-platform apps with our Apple platforms, Android, and JavaScript SDKs, all of your clients 
   share one Realtime Database instance and automatically receive updates with the newest data.
   
-* LiveData -  Live data only updates the app components like Activity or Fragments which are
+* Live database -  Live data only updates the app components like Activity or Fragments which are
   in active life cycle state. LiveData notifies the observer(Activity or Fragment) which are in 
   Started or Resumed life cycle state. Inactive observers registered to watch LiveData objects 
   aren’t notified about changes. Here inactive observers mean which are not in the state of 
@@ -95,17 +93,14 @@ of concepts used in our app.
   powerful they are fairly low-level, which requires a lot of time and effort to use. But Room 
   makes everything easy and clear to create a Database and perform the operations on it.
   
+  
+
 ## Features :-
 
+- Light/dark mode toggle
+- Live previews
+- Fullscreen mode
 - Easy to use
-- Simple and Intutive UI
-- LightWeight App and no Ads
-- Login/Signup/Forgot Password using Firebase
-- Full Supoort for Dark Theme
-- Online Hosted database (Realtime Databae) for Attendance Details
-- Material Colors
-- Auto Switch to Day/Night Mode based on System Theme
-- Material Bottom Navigation
 
 ## Installation
 
@@ -113,11 +108,8 @@ You can access our app through : ( apk link)
 
 ## Future Scope
 
-We plan to implement support for teachers to mark/change students being absent or present.
-We also plan to add issue forms for students to raise request to change status.
-We also plan to add feature to support for Multiple Colleges so that we can launch our app
-globally app globally and integrate all the students from various colloges from 
-their start in career till the very end. We intend to be one stop solution for all the universities,
+We hope to launch our app globally and integrate all the students from various colloges from 
+their start in career till the very end. We intend to be o one stop solution for all the universities,
 colleges and schools when it comes of maintaining ateendance. We would also like integrate 
 learning process and expand oursevlves to an edtech revolution by utilising data of students.
     

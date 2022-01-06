@@ -10,28 +10,26 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hackathontcet.attendance.RecyclerAdapter
-import com.hackathontcet.attendance.R
-import com.hackathontcet.attendance.Subjects
+import com.hackathontcet.attendance.*
+
 
 class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
     private lateinit var adapter : RecyclerAdapter
-
     val names : ArrayList<Subjects> = ArrayList()
-
+    lateinit var database: DevDatabase
     lateinit var imageId : Array<Int>
     lateinit var name : Array<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
-
         }
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view= inflater.inflate(R.layout.fragment_about, container, false)
+        name = nameClass.ab
         maz.globalVar = 1
         getUserData()
         initRecyclerView(view)
@@ -56,6 +54,7 @@ class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
     private fun getUserData(){
         /* It will Give the Data (i.e. Image and Name) for the Subjects*/
         names.clear()
+
         imageId = arrayOf(
             R.drawable.ic_profile_user,
             R.drawable.ic_profile_user,
@@ -64,9 +63,9 @@ class AboutFragment : Fragment(),RecyclerAdapter.ClickListener {
             R.drawable.ic_profile_user
         )
 
-        name = arrayOf(
+        /*name = arrayOf(
             "Aman Tiwari","Deexith Madas","Ganesh Utla","Kunal Agrawal","Vaibhav Ashta"
-        )
+        )*/
 
         for (i in imageId.indices){
             names.add(Subjects(imageId[i],name[i]))

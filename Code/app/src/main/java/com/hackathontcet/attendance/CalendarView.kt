@@ -2,15 +2,16 @@ package com.hackathontcet.attendance
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.DatePicker
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.*
-
+import com.google.firebase.database.FirebaseDatabase
 import java.util.*
-import kotlin.collections.ArrayList
 
 class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     var nday=""
@@ -21,10 +22,8 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     var savedday = 0
     var savedmonth = 0
     var savedyear = 0
-
     private lateinit var userlayout: RecyclerView
     private lateinit var ArrayList: ArrayList<Name>
-
     lateinit var studentRoll : Array<Int>
     lateinit var studentName : Array<String>
     var absentS = arrayOf("")
@@ -35,6 +34,7 @@ class CalendarView : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_view)
         getStudent()
+
 
         userlayout = findViewById(R.id.userlayout)
         userlayout.layoutManager = LinearLayoutManager(this)

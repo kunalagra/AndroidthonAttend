@@ -1,13 +1,12 @@
 package com.hackathontcet.attendance.ui.login
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import android.util.Patterns
+import com.hackathontcet.attendance.R
 import com.hackathontcet.attendance.data.LoginRepository
 import com.hackathontcet.attendance.data.Result
-
-import com.hackathontcet.attendance.R
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 

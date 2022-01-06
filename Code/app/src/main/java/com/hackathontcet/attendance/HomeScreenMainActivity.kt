@@ -1,24 +1,49 @@
 package com.hackathontcet.attendance
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Application
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.hackathontcet.attendance.fragments.AboutFragment
 import com.hackathontcet.attendance.fragments.HomeFragment
 import com.hackathontcet.attendance.fragments.ProfileFragment
 
+class nameClass : Application(){
+    companion object{
+        var ab = arrayOf("")
+    }
+
+}
 class HomeScreenMainActivity : AppCompatActivity() {
 
     // Defining the variables for different fragments
     private val homeFragment: HomeFragment = HomeFragment()
     private val profileFragment = ProfileFragment()
     private val aboutFragment = AboutFragment()
-
+    lateinit var db: DevDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.main_activity_home_screen)
+        db = DevDatabase.getDatabase(this)
+        var test =""
+
+        db.devDao().getName().observe(this, Observer{
+            it?.forEach() {
+                val b = it.name
+                test = test.plus(",").plus(b)
+
+            }
+            test = test.drop(1)
+            nameClass.ab = test.split(",").toTypedArray()
+
+        }
+        )
+
+
+
 
         // Defining variable for manipulating the buttons in the bottom navigation bar
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)

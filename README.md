@@ -76,7 +76,7 @@ of concepts used in our app.
   cross-platform apps with our Apple platforms, Android, and JavaScript SDKs, all of your clients 
   share one Realtime Database instance and automatically receive updates with the newest data.
   
-* Live database -  Live data only updates the app components like Activity or Fragments which are
+* LiveData -  Live data only updates the app components like Activity or Fragments which are
   in active life cycle state. LiveData notifies the observer(Activity or Fragment) which are in 
   Started or Resumed life cycle state. Inactive observers registered to watch LiveData objects 
   aren’t notified about changes. Here inactive observers mean which are not in the state of 
@@ -91,10 +91,15 @@ of concepts used in our app.
   
 ## Features :-
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
 - Easy to use
+- Simple and Intutive UI
+- LightWeight App and no Ads
+- Login/Signup/Forgot Password using Firebase
+- Full Supoort for Dark Theme
+- Online Hosted database (Realtime Databae) for Attendance Details
+- Material Colors
+- Auto Switch to Day/Night Mode based on System Theme
+- Material Bottom Navigation
 
 ## Installation
 
@@ -102,8 +107,11 @@ You can access our app through : ( apk link)
 
 ## Future Scope
 
-We hope to launch our app globally and integrate all the students from various colloges from 
-their start in career till the very end. We intend to be o one stop solution for all the universities,
+We plan to implement support for teachers to mark/change students being absent or present.
+We also plan to add issue forms for students to raise request to change status.
+We also plan to add feature to support for Multiple Colleges so that we can launch our app
+globally app globally and integrate all the students from various colloges from 
+their start in career till the very end. We intend to be one stop solution for all the universities,
 colleges and schools when it comes of maintaining ateendance. We would also like integrate 
 learning process and expand oursevlves to an edtech revolution by utilising data of students.
     

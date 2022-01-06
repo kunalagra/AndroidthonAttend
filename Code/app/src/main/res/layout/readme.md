@@ -33,7 +33,7 @@ we intend to launch it globally.
    ![Date](C:\Users\amant\StudioProjects\AndroidthonAttend\Code\app\src\main\res\drawable\Selectdate.jpeg)
    
 4. Data
-   @[Data](C:\Users\amant\StudioProjects\AndroidthonAttend\Code\app\src\main\res\drawable\Data.jpeg)
+   @[Data](drawable/Data.jpeg)
 
 ## Concepts used :-
 

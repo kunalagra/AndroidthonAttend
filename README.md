@@ -29,7 +29,8 @@ we intend to launch it globally.
 
 2. Home Screen & Choose Subject
 
-   ![Homescreen](https://user-images.githubusercontent.com/96176706/148374365-743acb53-4a2f-4f6e-880e-e987cf0592dc.jpeg)
+   ![home2](https://user-images.githubusercontent.com/96176706/148522869-9932f7ac-d171-48f4-9a89-4f2c73fbfa96.jpeg)
+
    
 3. Select Date
 
@@ -66,8 +67,7 @@ of concepts used in our app.
   -RecyclerView :  A RecyclerView is an advanced version of ListView with improved performance. When
   you have a long list of items to show you can use RecyclerView. It has the ability to reuse its
   views. In RecyclerView when the View goes out of the screen or not visible to the user it won’t
-  destroy it, it will reuse these views. This feature helps in reducing power consumption and
-  providing more responsiveness to the application.
+  destroy it, it will reuse these views.
   
 * Firebase Authorization - You can sign in users to yourFirebase app either by usingFirebaseUI as a 
     complete drop-in auth solution or by using theFirebase Authentication SDK to manually integrate 

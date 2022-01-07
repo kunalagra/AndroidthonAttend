@@ -14,7 +14,7 @@ for their easy access.
 
 ## Proposed Solution :-
 
-Our project 'Attendance Manager app' is used to monitor daily
+Our project 'Attendance Manager' is used to monitor daily
 attendane of FYJC students for the subjects Physics, Chemistry
 & Mathematics. Students can view their daily attendance for all
 subjects at one go. It is for local use of Thakur College now but
@@ -99,13 +99,18 @@ of concepts used in our app.
 
 - Easy to use
 - Simple and Intutive UI
-- LightWeight App and no Ads
-- Login/Signup/Forgot Password using Firebase
-- Full Supoort for Dark Theme
+- LightWeight App (only 6MiB)
+- Login/Signup/Forgot Features using Firebase
+- Storing Sessions of Firebase Authentication
+- 8+ Views (3 Fragments, 5 Activity)
+- RecylerView to Generate Layout on Fly
+- Full Supoort for Dark(Night) Theme
+- Auto Switch to Day/Night Theme based on System Theme
 - Online Hosted database (Realtime Databae) for Attendance Details
-- Material Colors
-- Auto Switch to Day/Night Mode based on System Theme
+- Carefully chosen Material Colors for themeing
 - Material Bottom Navigation
+- ROOM Db to store Dev developer Info
+- Code Licensed under GNU GPL v3
 
 ## Installation
 

@@ -26,11 +26,4 @@
         <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
     </style>
 
-    <style name="Theme.Attendance.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.Attendance.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
 </resources>

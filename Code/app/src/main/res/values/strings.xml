@@ -2,12 +2,6 @@
     <string name="app_name">Attendance Manager</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
@@ -16,31 +10,19 @@
     <string name="sign_up">SIGN UP</string>
     <string name="login">LOGIN</string>
     <string name="image_of_a_two_students_noting_attendance">Image of a two students noting attendance</string>
-    <string name="title_activity_home_screen">Home_Screen</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
     <!--Strings used for Home Screen-->
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="subject_name">Subject Name</string>
     <string name="log_out">Log Out</string>
-    <string name="search">Search</string>
-    <string name="homescreen">HomeScreen</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_your_email_we_ll_send_you_email_to_reset_your_password">Enter your Email We\'ll Send you email to reset your password</string>
     <string name="submit">SUBMIT</string>
     <string name="forgot">FORGOT</string>
     <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
-    <string name="help">Help</string>
     <string name="profile">Profile</string>
     <string name="home">Home</string>
     <string name="about">About</string>
-    <string name="profileText">Profile</string>
     <string name="cv_date">Select Date:</string>
     <string name="selected_date">select</string>
     <string name="result_date_time">Get Data</string>

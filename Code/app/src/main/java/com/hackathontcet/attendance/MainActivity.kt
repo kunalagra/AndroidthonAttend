@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             db.devDao().insert(Devdetails(1, "Deexith Madas"))
             db.devDao().insert(Devdetails(2, "Ganesh Utla"))
             db.devDao().insert(Devdetails(3, "Kunal Agrawal"))
-            db.devDao().insert(Devdetails(4, "Vaibhav Astha"))
+            db.devDao().insert(Devdetails(4, "Vaibhav Ashta"))
 
         }
 

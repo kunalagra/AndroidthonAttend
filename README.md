@@ -21,31 +21,7 @@ subjects at one go. It is for local use of Thakur College now but
 we intend to launch it globally.
 
 ## How it works?
-
-1. Main Page
-
-  ![mainscreen2](https://user-images.githubusercontent.com/96176706/148526075-2c59266b-5449-4948-b09f-e40987e0ed1a.jpeg)
-
-2. Login
-
-![login](https://user-images.githubusercontent.com/96176706/148374251-09b73903-19b7-48f9-94f4-11c5761f28e8.jpeg)
-
-3. Home Screen & Choose Subject
-
-   ![darkhome2](https://user-images.githubusercontent.com/96176706/148528643-42fdd6d2-7a13-4cce-a64b-b8a4edd35a1f.jpeg)
-
-
-4. Profile
-
-  ![darkprofile](https://user-images.githubusercontent.com/96176706/148529419-4efb4e39-deb9-4e4b-8e57-e402ae20e02b.jpeg)
-
-5. Select Date
-
-   ![selectdate3](https://user-images.githubusercontent.com/96176706/148519539-2c30ecb7-c361-4ab4-ac49-9eea8061ef40.jpeg)
-
-6. Data
- 
-   ![darkdata2](https://user-images.githubusercontent.com/96176706/148528775-f90da52a-d127-417c-87e4-88d815408d9a.jpeg)
+![ScreenShot](https://i.postimg.cc/mT0XtyLc/combine-images-1.jpg)
 
 
 ## Concepts used :-

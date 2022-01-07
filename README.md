@@ -22,23 +22,31 @@ we intend to launch it globally.
 
 ## How it works?
 
-1. Signup or login
+1. Main Page
 
-   ![Signup](https://user-images.githubusercontent.com/96176706/148374004-b2a023f8-a371-40fb-a256-c822d2c9eef1.jpeg)
-   ![login](https://user-images.githubusercontent.com/96176706/148374251-09b73903-19b7-48f9-94f4-11c5761f28e8.jpeg)
+  ![mainscreen2](https://user-images.githubusercontent.com/96176706/148526075-2c59266b-5449-4948-b09f-e40987e0ed1a.jpeg)
 
-2. Home Screen & Choose Subject
+2. Login
 
-   ![home2](https://user-images.githubusercontent.com/96176706/148522869-9932f7ac-d171-48f4-9a89-4f2c73fbfa96.jpeg)
+![login](https://user-images.githubusercontent.com/96176706/148374251-09b73903-19b7-48f9-94f4-11c5761f28e8.jpeg)
 
-   
-3. Select Date
+3. Home Screen & Choose Subject
+
+   ![darkhome2](https://user-images.githubusercontent.com/96176706/148528643-42fdd6d2-7a13-4cce-a64b-b8a4edd35a1f.jpeg)
+
+
+4. Profile
+
+  ![darkprofile](https://user-images.githubusercontent.com/96176706/148529419-4efb4e39-deb9-4e4b-8e57-e402ae20e02b.jpeg)
+
+5. Select Date
 
    ![selectdate3](https://user-images.githubusercontent.com/96176706/148519539-2c30ecb7-c361-4ab4-ac49-9eea8061ef40.jpeg)
 
-4. Data
+6. Data
  
-   ![data3](https://user-images.githubusercontent.com/96176706/148519334-61e40a8c-c72d-498e-9119-e3a47e596138.jpeg)
+   ![darkdata2](https://user-images.githubusercontent.com/96176706/148528775-f90da52a-d127-417c-87e4-88d815408d9a.jpeg)
+
 
 ## Concepts used :-
 
@@ -119,5 +127,5 @@ learning process and expand oursevlves to an edtech revolution by utilising data
     
 ## Team Members
 
-  ![developers2](https://user-images.githubusercontent.com/96176706/148520560-ba6115aa-aa55-478b-8f45-ae3c1e7de78b.jpeg)
+  ![darkdeveloper](https://user-images.githubusercontent.com/96176706/148529032-069bf3a7-07bd-4971-93f0-c6b70b147330.jpeg)
 

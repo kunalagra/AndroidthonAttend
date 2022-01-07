@@ -32,14 +32,12 @@ we intend to launch it globally.
    ![Homescreen](https://user-images.githubusercontent.com/96176706/148374365-743acb53-4a2f-4f6e-880e-e987cf0592dc.jpeg)
    
 3. Select Date
-   
-   ![Selectdate](https://user-images.githubusercontent.com/96176706/148374406-8b1eb15c-315a-4aa3-884b-d09deb97b252.jpeg)
+
+   ![selectdate3](https://user-images.githubusercontent.com/96176706/148519539-2c30ecb7-c361-4ab4-ac49-9eea8061ef40.jpeg)
 
 4. Data
  
-   ![Data](https://user-images.githubusercontent.com/96176706/148374450-992037b6-407c-4d68-99a7-34cfcb22dd9d.jpeg)
-
-
+   ![data3](https://user-images.githubusercontent.com/96176706/148519334-61e40a8c-c72d-498e-9119-e3a47e596138.jpeg)
 
 ## Concepts used :-
 
@@ -61,11 +59,9 @@ of concepts used in our app.
   arranges its children i.e the various views and layouts linearly (one after another) in a single
   column(vertically) or a single row(horizontally).
 
-  -Constraint Layout - ConstraintLayout provides you the ability to completely design your UI with
-  the drag and drop feature provided by the Android Studio design editor. It helps to improve the
-  UI performance over other layouts. With the help of ConstraintLayout, we can control the group of
-  widgets through a single line of code. With the help of ConstraintLayout, we can easily add
-  animations to the UI components which we used in our app.
+  -Constraint Layout -  It helps to improve the UI performance over other layouts. With the help of 
+  ConstraintLayout, we can control the group of widgets through a single line of code. With the
+  help of ConstraintLayout, we can easily add animations to the UI components which we used in our app.
 
   -RecyclerView :  A RecyclerView is an advanced version of ListView with improved performance. When
   you have a long list of items to show you can use RecyclerView. It has the ability to reuse its
@@ -84,16 +80,11 @@ of concepts used in our app.
   
 * LiveData -  Live data only updates the app components like Activity or Fragments which are
   in active life cycle state. LiveData notifies the observer(Activity or Fragment) which are in 
-  Started or Resumed life cycle state. Inactive observers registered to watch LiveData objects 
-  aren’t notified about changes. Here inactive observers mean which are not in the state of 
-  Started or Resumed. One can register an observer paired with an object that implements the 
-  LifecycleOwner interface
+  Started or Resumed life cycle state.
   
 * Room database - Room is one of the Jetpack Architecture Components in Android. This provides an
   abstract layer over the SQLite Database to save and perform the operations on persistent data 
-  locally. This is recommended by Google over SQLite Database although the SQLite APIs are more 
-  powerful they are fairly low-level, which requires a lot of time and effort to use. But Room 
-  makes everything easy and clear to create a Database and perform the operations on it.
+  locally.
   
 ## Features :-
 
@@ -126,3 +117,7 @@ their start in career till the very end. We intend to be one stop solution for a
 colleges and schools when it comes of maintaining ateendance. We would also like integrate 
 learning process and expand oursevlves to an edtech revolution by utilising data of students.
     
+## Team Members
+
+  ![developers2](https://user-images.githubusercontent.com/96176706/148520560-ba6115aa-aa55-478b-8f45-ae3c1e7de78b.jpeg)
+

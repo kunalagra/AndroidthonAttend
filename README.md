@@ -3,6 +3,9 @@
 This readme file is designed for FYJC students of Thakur College to
 help them navigate easily thorugh our app
 
+## Update :-
+We got 3rd place (2nd Runnerup) in the AndroidBuzz GDSC - TCET 2021 Hackathon for this App.
+
 ## Problem Statement :-
 
 Due to COVID pandemic all colleges have started using digital

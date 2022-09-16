@@ -82,7 +82,7 @@ of concepts used in our app.
 - Storing Sessions of Firebase Authentication
 - 8+ Views (3 Fragments, 5 Activity)
 - RecylerView to Generate Layout on Fly
-- Full Supoort for Dark(Night) Theme
+- Full Support for Dark(Night) Theme
 - Auto Switch to Day/Night Theme based on System Theme
 - Online Hosted database (Realtime Databae) for Attendance Details
 - Carefully chosen Material Colors for themeing

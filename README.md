@@ -24,7 +24,7 @@ subjects at one go. It is for local use of Thakur College now but
 we intend to launch it globally.
 
 ## How it works?
-![ScreenShot](https://i.postimg.cc/mT0XtyLc/combine-images-1.jpg)
+![ScreenShot](/screenshots.jpg)
 
 
 ## Concepts used :-
